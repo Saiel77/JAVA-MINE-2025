@@ -3,7 +3,7 @@
 public class Patterns2 {
 
     public static void main(String args[]) {
-        int n = 5;
+        int n = 6;
         int number = 1;
 
         for(int i=1; i<=n; i++) {
