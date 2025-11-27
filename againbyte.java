@@ -7,7 +7,7 @@ public class againbyte {
 
      int i = 0;
      do {
-         System.out.println(i);
+         System.out.println("Apna COllege");
          i++;
 
      }while (i<11);
