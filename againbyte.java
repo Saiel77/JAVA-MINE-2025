@@ -3,17 +3,15 @@ import java.util.*;
 
 public class againbyte {
 
-    public static void main(String args[]){
+    public static void main(String args[]) {
 
-     int i = 0;
-     do {
-         System.out.println("Apna COllege");
-         i++;
+        int n = 25;
 
-     }while (i<11);
-      }
+        for (int i = 1; i < n; i++) {
 
-
-      }
-
-
+            if (i % 2 == 0) {
+                System.out.println(i);
+            }
+        }
+    }
+}
