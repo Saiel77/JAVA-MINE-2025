@@ -3,20 +3,29 @@ import java.util.*;
 
 public class againbyte {
 
-    public static int calculateProduct(int a,int b){
+    public static void printFactorial(int n){
+        if (n<0){
+            System.out.println("Invalid Number");
+            return;
+        }
+        int factorial =1;
 
-        return a*b;
+        for (int i =n; i>=1; i--){
+            factorial = factorial * i;
+
+
+        }
+        System.out.println(factorial);
+        return;
+
     }
-
 
     public static void main(String args[]) {
 
         Scanner SC = new Scanner(System.in);
-        int a = SC.nextInt();
-        int b = SC.nextInt();
+        int n = SC.nextInt();
 
-
-        System.out.println("The Product Of Two Numbers Is :" + calculateProduct(a,b));
+        printFactorial(n);
 
 
     }
