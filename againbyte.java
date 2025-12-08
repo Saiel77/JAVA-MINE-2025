@@ -3,10 +3,9 @@ import java.util.*;
 
 public class againbyte {
 
-    public static int calculateSum(int a,int b){
+    public static int calculateProduct(int a,int b){
 
-        int sum = a+b;
-        return sum;
+        return a*b;
     }
 
 
@@ -16,8 +15,8 @@ public class againbyte {
         int a = SC.nextInt();
         int b = SC.nextInt();
 
-        int sum = calculateSum(a,b);
-        System.out.println("The Sum Of Two Numbers Is :" + sum);
+
+        System.out.println("The Product Of Two Numbers Is :" + calculateProduct(a,b));
 
 
     }
