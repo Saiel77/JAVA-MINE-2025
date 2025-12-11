@@ -3,30 +3,18 @@ import java.util.*;
 
 public class againbyte {
 
-    public static void printFactorial(int n){
-        if (n<0){
-            System.out.println("Invalid Number");
-            return;
-        }
-        int factorial =1;
-
-        for (int i =n; i>=1; i--){
-            factorial = factorial * i;
-
-
-        }
-        System.out.println(factorial);
-        return;
-
-    }
-
     public static void main(String args[]) {
 
-        Scanner SC = new Scanner(System.in);
-        int n = SC.nextInt();
+      int n =5;
 
-        printFactorial(n);
+     for (int i =1; i<=n; i++){
 
+         for (int j=1; j<=i; j++){
+             System.out.print(j+ " ");
+         }
+         System.out.println();
+     }
+
+        }
 
     }
-}
