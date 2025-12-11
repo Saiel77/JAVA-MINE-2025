@@ -5,7 +5,9 @@ public class againbyte {
 
     public static void main(String args[]) {
 
-      int n =5;
+     Scanner sc = new Scanner(System.in);
+     int n = sc.nextInt();
+
 
      for (int i =1; i<=n; i++){
 
