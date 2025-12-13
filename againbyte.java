@@ -7,14 +7,18 @@ public class againbyte {
 
     // Scanner sc = new Scanner(System.in);
     // int n = sc.nextInt();
-     int n = 4;
+     int n = 5;
 
-     for (int i =1; i<=n; i++){
+     for (int i =0; i<=n; i++){
 
-         int m = n-i+1;
+         for (int j=0; j<=n-i-1; j++){
+             System.out.print(" ");
+         }
 
-         for (int j=1; j<=m; j++){
-             System.out.print(i);
+         int number = 1;
+         for (int j=0; j<=i; j++){
+             System.out.print(number + " ");
+             number = number * (i-j)/(j+1);
          }
          System.out.println();
      }
