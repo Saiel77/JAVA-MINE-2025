@@ -15,9 +15,9 @@ public class againbyte {
              System.out.print(" ");
          }
 
-         int num168 = 1;
+         int num1688 = 1;
          for (int j=0; j<=i; j++){
-             System.out.print(num168);
+             System.out.print(num1688);
 
          }
          System.out.println();
