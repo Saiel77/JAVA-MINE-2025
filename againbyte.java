@@ -3,20 +3,18 @@ import java.util.*;
 
 public class againbyte {
 
-    public static void printFactorial(int n){
-        if (n<0){
-            System.out.println("Invalid Number");
-            return;
+    public static void checkPrimeNumber(int n){
+     if (n % 2 == 1) {
+         System.out.println(n + " Is a Prime Number");
+     }
+          if (n >=2 ){
+              System.out.println(n + " Is a prime number");
+          }
+     else {
+             System.out.println(n + " is not a Prime Number");
+             return;
+         }
 
-        }
-        int factorial =1;
-        for (int i=n; i>=1; i--){
-            factorial = factorial * i;
-
-
-        }
-        System.out.println(factorial);
-        return;
     }
 
     public static void main(String args[]) {
@@ -24,8 +22,7 @@ public class againbyte {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
 
-        printFactorial(n);
-
+       checkPrimeNumber(n);
 
         }
 
