@@ -3,14 +3,11 @@ import java.util.*;
 
 public class againbyte {
 
-    public static void checkEvenNumber(int n){
+    public static void printTable(int n){
 
-        if ( n % 2 == 0){
-            System.out.println(n + " Is a Even Number");
+        for (int i=1; i<=10; i++ ){
+            System.out.println(i*n);
 
-        }else {
-            System.out.println(n + " is not A Even Number ");
-            return;
         }
     }
 
@@ -19,7 +16,7 @@ public class againbyte {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
 
-        checkEvenNumber(n);
+        printTable(n);
 
 
         }
