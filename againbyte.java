@@ -3,22 +3,26 @@ import java.util.*;
 
 public class againbyte {
 
-    public static double calculateCircumferenceOfCircle(int n){
+    public static void eligibilatyToVote(int Age){
 
+        if (Age > 18){
+            System.out.println("The Person Is Eligible To Vote");
 
-        return (2*3.14)*n;
-
-
+        }else {
+            System.out.println("The Person Is Not Eligible To Vote");
+            return;
+        }
 
     }
     public static void main(String args[]) {
 
         Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
 
-       double Circum= calculateCircumferenceOfCircle(n);
+        System.out.println("Enter The Person's Age");
+        int Age = sc.nextInt();
 
-        System.out.println(Circum);
+        eligibilatyToVote(Age);
+
 
         }
 
