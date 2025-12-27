@@ -3,24 +3,22 @@ import java.util.*;
 
 public class againbyte {
 
-    public static void findGreaterNumber(int a , int b){
+    public static void calculateCircumferenceOfCircle(int n){
 
-        if (a>b){
-            System.out.println(a + " Is Greater Number");
-        }else{
-            System.out.println(b + " Is Greater Number");
-        }
+      double circumferenceb =  (2*3.14)*n;
+
+        System.out.println("The Circumference Of Circle IS " + circumferenceb);
+        return;
+
 
 
     }
     public static void main(String args[]) {
 
         Scanner sc = new Scanner(System.in);
-        int a = sc.nextInt();
-        int b = sc.nextInt();
+        int n = sc.nextInt();
 
-
-      findGreaterNumber(a,b);
+      calculateCircumferenceOfCircle(n);
 
         }
 
