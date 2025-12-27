@@ -3,30 +3,24 @@ import java.util.*;
 
 public class againbyte {
 
-    public static double findAvgNumber(int a , int b , int c){
+    public static void addOddNumbers(int n){
+        int sum = 0;
 
-        return(a+b+c)/3.0;
-
+        for (int i =1; i<=n; i++){
+            if (i % 2 == 1){
+                sum+=i;
+            }
+        }
+        System.out.println("The Sum Of Enterd Odd Numbers is " + sum);
 
     }
-
-
     public static void main(String args[]) {
 
         Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
 
-        System.out.println("Enter the First Number");
-        int a = sc.nextInt();
+        addOddNumbers(n);
 
-        System.out.println("Enter the Second Number");
-        int b = sc.nextInt();
-
-        System.out.println("Enter the third Number");
-        int c = sc.nextInt();
-
-        double avg = findAvgNumber(a,b,c);
-
-        System.out.println("The Average Of Three Numbers Is "+ avg);
 
         }
 
