@@ -3,24 +3,24 @@ import java.util.*;
 
 public class againbyte {
 
-    public static void addOddNumbers(int n){
-        int sum = 0;
+    public static void findGreaterNumber(int a , int b){
 
-        for (int i =1; i<=n; i++){
-            if (i % 2 == 1){
-                sum+=i;
-            }
+        if (a>b){
+            System.out.println(a + " Is Greater Number");
+        }else{
+            System.out.println(b + " Is Greater Number");
         }
-        System.out.println("The Sum Of Enterd Odd Numbers is " + sum);
+
 
     }
     public static void main(String args[]) {
 
         Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
+        int a = sc.nextInt();
+        int b = sc.nextInt();
 
-        addOddNumbers(n);
 
+      findGreaterNumber(a,b);
 
         }
 
