@@ -3,12 +3,10 @@ import java.util.*;
 
 public class againbyte {
 
-    public static void calculateCircumferenceOfCircle(int n){
+    public static double calculateCircumferenceOfCircle(int n){
 
-      double circumferenceb =  (2*3.14)*n;
 
-        System.out.println("The Circumference Of Circle IS " + circumferenceb);
-        return;
+        return (2*3.14)*n;
 
 
 
@@ -18,7 +16,9 @@ public class againbyte {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
 
-      calculateCircumferenceOfCircle(n);
+       double Circum= calculateCircumferenceOfCircle(n);
+
+        System.out.println(Circum);
 
         }
 
