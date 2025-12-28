@@ -6,28 +6,33 @@ public class againbyte {
 
     public static void main(String args[]) {
 
-        Scanner sc = new Scanner(System.in);
-        int size = sc.nextInt();
-        int numbers[]= new int[size];
+       Scanner sc = new Scanner(System.in);
+       int size = sc.nextInt();
 
-        for (int i=0; i<size; i++){
-           numbers[i]= sc.nextInt();
+       String name[]= new String[size];
 
-        }
+       for (int i=0; i<size; i++){
+           name[i]= sc.next();
 
-        int x = sc.nextInt();
 
-        for (int i=0; i<numbers.length; i++){
+       }
+       for (int i =0; i<name.length; i++){
 
-            if (numbers[i] == x){
-                System.out.println("The Index Of X Is "+ i);
-            }
-        }
+           System.out.println("Names "+(i+1) + name[i]);
        }
 
 
 
- 
+
+
+
+
+
+
+
+
+
+    }
     }
 
 
