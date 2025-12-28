@@ -4,35 +4,19 @@ import java.util.*;
 
 public class againbyte {
 
-    public static void gcd(int a, int b){
-
-        while (b != 0){
-            int temp = b;
-            b = a % b;
-            a = temp;
-
-
-
-        }
-        System.out.println(a);
-        return;
-    }
-
-
-
-
     public static void main(String args[]) {
 
-       Scanner sc = new Scanner(System.in);
-       int a = sc.nextInt();
-       int b = sc.nextInt();
+      int[] marks = new int[3];
+      marks[0] = 95;
+      marks[1]= 96;
+      marks[2]= 98;
 
-       gcd(a,b);
-
+        for (int i=0; i<3; i++){
+            System.out.println(marks[i]);
+        }
 
 
  
     }
 
     }
-//
