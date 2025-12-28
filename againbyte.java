@@ -6,26 +6,36 @@ public class againbyte {
 
     public static void main(String args[]) {
 
-       Scanner sc = new Scanner(System.in);
-       int size = sc.nextInt();
+      Scanner sc = new Scanner(System.in);
+     int size = sc.nextInt();
 
-       String name[]= new String[size];
+     int numbers[]= new int[size];
 
-       for (int i=0; i<size; i++){
-           name[i]= sc.next();
+     for (int i=0; i<size; i++){
+
+         numbers[i]= sc.nextInt();
+     }
+
+     int max = Integer.MIN_VALUE;
+     int min = Integer.MAX_VALUE;
+
+     for (int i=0; i< numbers.length; i++){
+
+         if (max<numbers[i]){
+             max = numbers[i];
+
+         }if (min>numbers[i]){
+             min = numbers[i];
 
 
-       }
-       for (int i =0; i<name.length; i++){
-
-           System.out.println("Names "+(i+1) + name[i]);
-       }
+         }
 
 
 
 
-
-
+     }
+        System.out.println("The Maximum Number Is "+ max);
+        System.out.println("The Minimum Number Is "+ min);
 
 
 
