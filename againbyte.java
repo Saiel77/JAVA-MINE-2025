@@ -12,25 +12,33 @@ public class againbyte {
 
     int[][] numbers = new int[rows][cols];
 
-    for (int i=0; i<rows; i++){
+    for (int i=0; i<rows; i++) {
 
-        for (int j=0; j<cols; j++){
+        for (int j = 0; j < cols; j++) {
             numbers[i][j] = sc.nextInt();
+
         }
     }
 
-    for (int i=0; i<rows; i++){
-        for (int j=0; j<cols; j++){
-            System.out.print(numbers[i][j]+ " ");
+        int x = sc.nextInt();
+
+        for (int i=0; i<rows; i++){
+
+            for (int j=0; j<cols; j++){
+
+                if (x == numbers[i][j]){
+                    System.out.println("The Location Of X In Matrix Is "+" "+ i +" " + j);
+
+
+                }
+                }
+            }
+
+
+
         }
-        System.out.println();
-    }
-
-
-
-
 
     }
-    }
+
 
 
