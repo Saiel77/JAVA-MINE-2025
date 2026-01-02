@@ -27,7 +27,7 @@ public class againbyte {
             for (int j=0; j<cols; j++){
 
                 if (x == numbers[i][j]){
-                    System.out.println("The Location Of X In Matrix Is "+" "+ i +" " + j);
+                    System.out.println("The Location Of X In Matrix Is +" + i +" " + j);
 
 
                 }
