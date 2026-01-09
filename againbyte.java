@@ -22,7 +22,7 @@ public class againbyte {
 
         }
 
-        System.out.println("The Transse Matrix Is ");
+        System.out.println("The Transe Matrix Is ");
 
         for (int j=0; j<m; j++){
             for (int i=0; i<n; i++){
