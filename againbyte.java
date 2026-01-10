@@ -6,10 +6,11 @@ public class againbyte {
 
     public static void main(String args[]) {
 
-        Scanner sc = new Scanner(System.in);
-        String name = sc.nextLine();
+        String firstName = "tony";
+        String lastName = "stark";
+        String fullName = firstName + lastName;
 
-        System.out.println("The Full Name Is : "+ name);
+        System.out.println(fullName);
     }
 }
 
