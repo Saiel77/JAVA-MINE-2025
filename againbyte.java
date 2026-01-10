@@ -6,16 +6,14 @@ public class againbyte {
 
     public static void main(String args[]) {
 
-        String firstName = "tony";
-        String lastName = "stark";
-        String fullName = firstName + " "+ lastName;
+       String name1 = "Tony";
+       String name2 = "Tony";
 
-        System.out.println(fullName.length());
-
-        for (int i=0; i<fullName.length(); i++){
-
-            System.out.println(fullName.charAt(i));
-        }
+       if (name1.compareTo(name2)==0){
+           System.out.println("Both Strings Are Equal");
+       }else {
+           System.out.println("Both Strings Are Not Equal");
+       }
     }
 }
 
