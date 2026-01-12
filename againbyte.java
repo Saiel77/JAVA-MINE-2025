@@ -7,20 +7,21 @@ public class againbyte {
     public static void main(String args[]) {
 
        Scanner sc = new Scanner(System.in);
-       int size = sc.nextInt();
+       String str = sc.next();
+       String result = "";
 
-       String array[]= new String[size];
 
-       int toLength = 0;
+       for (int i=0; i<str.length(); i++){
+           if (str.charAt(i) == 'e'){
+               result += 'i';
 
-       for (int i=0; i<size; i++){
 
-           array[i]= sc.next();
-
-           toLength += array[i].length();
+           }else {
+               result += str.charAt(i);
+           }
 
        }
-        System.out.println(toLength);
+        System.out.println(result);
     }
 }
 
