@@ -6,10 +6,21 @@ public class againbyte {
 
     public static void main(String args[]) {
 
-        String sentence = "My Name Is Tony";
-        String name = sentence.substring(11, sentence.length());
+       Scanner sc = new Scanner(System.in);
+       int size = sc.nextInt();
 
-        System.out.println(name);
+       String array[]= new String[size];
+
+       int toLength = 0;
+
+       for (int i=0; i<size; i++){
+
+           array[i]= sc.next();
+
+           toLength += array[i].length();
+
+       }
+        System.out.println(toLength);
     }
 }
 
