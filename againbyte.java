@@ -8,11 +8,9 @@ public class againbyte {
 
     StringBuilder sb= new StringBuilder("Jack");
 
-        System.out.println(sb);
+       
 
-        System.out.println(sb.charAt(0));
-
-        sb.setCharAt(0,'M');
+        sb.insert(0,'H');
         System.out.println(sb);
     }
 }
