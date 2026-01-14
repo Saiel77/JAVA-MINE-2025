@@ -6,20 +6,14 @@ public class againbyte {
 
     public static void main(String args[]) {
 
-      Scanner sc = new Scanner(System.in);
-      String email = sc.next();
-      String userName ="";
+    StringBuilder sb= new StringBuilder("Jack");
 
-      for (int i=0; i<email.length(); i++){
+        System.out.println(sb);
 
-          if (email.charAt(i) == '@'){
-              break;
+        System.out.println(sb.charAt(0));
 
-          }else {
-              userName += email.charAt(i);
-          }
-      }
-        System.out.println(userName);
+        sb.setCharAt(0,'M');
+        System.out.println(sb);
     }
 }
 
