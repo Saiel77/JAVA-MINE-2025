@@ -8,9 +8,7 @@ public class againbyte {
 
     StringBuilder sb= new StringBuilder("Jack");
 
-       
-
-        sb.insert(0,'H');
+        sb.insert(2,'c');
         System.out.println(sb);
     }
 }
