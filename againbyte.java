@@ -10,6 +10,9 @@ public class againbyte {
 
         sb.insert(2,'c');
         System.out.println(sb);
+
+        sb.delete(2,3);
+        System.out.println(sb);
     }
 }
 
