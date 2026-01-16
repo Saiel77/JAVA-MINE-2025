@@ -13,7 +13,7 @@ public class againbyte {
     sb.append('L');
     sb.append('O');
 
-        System.out.println(sb);
+        System.out.println(sb.length());
 
 
     }
