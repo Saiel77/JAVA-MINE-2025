@@ -7,10 +7,12 @@ public class againbyte {
     public static void main(String args[]) {
 
    int n =5;
-    int pos = 1;
+    int pos = 2;
     int bitmask = 1<<pos;
+    int notBitmask = ~(bitmask);
 
-    int newNumber = bitmask | n;
+
+    int newNumber = notBitmask & n;
         System.out.println(newNumber);
 
 
