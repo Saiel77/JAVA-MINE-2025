@@ -6,20 +6,15 @@ public class againbyte {
 
     public static void main(String args[]) {
 
-    StringBuilder sb = new StringBuilder("hello");
+   int n =5;
+    int pos = 2;
+    int bitmask = 1<<pos;
 
-    for (int i =0; i<sb.length()/2; i++){
-
-        int front = i;
-        int back = sb.length()-1-i;
-
-        char frontChar = sb.charAt(front);
-        char backChar = sb.charAt(back);
-
-        sb.setCharAt(front, backChar);
-        sb.setCharAt(back, frontChar);
+    if ( (bitmask & n) == 0){
+        System.out.println("Bit Was Zero");
+    }else {
+        System.out.println("Bit Was One");
     }
-        System.out.println(sb);
 
 
     }
