@@ -14,15 +14,15 @@ public class againbyte {
 
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        int pos = 3;
+        int count = 0;
 
-        int mask = 1 << pos;
+        while (n > 0) {
 
-        int result = n ^ mask;
+            count += (n & 1);
+            n >>= 1;
 
-        System.out.println("Original Number " + n +"Binary Conversion "+Integer.toBinaryString(n));
-        System.out.println("After Toggling Bit At Position "+ pos + result + "Its Binary Conversion Is "+ Integer.toBinaryString(result));
-
+        }
+        System.out.println("Numbers of 1's In Binary Is "+ count);
 
 
 
