@@ -13,14 +13,17 @@ public class againbyte {
     public static void main(String args[]) {
 
         Scanner sc = new Scanner(System.in);
-        int num = sc.nextInt();
+        int n = sc.nextInt();
+        int pos = 3;
 
-        if (isPowerOfTwo(num)){
-            System.out.println(num + " Is Power Of Two");
-        }else{
-            System.out.println(num + " Is Not Power Of Two");
+        int mask = 1 << pos;
 
-        }
+        int result = n ^ mask;
+
+        System.out.println("Original Number " + n +"Binary Conversion "+Integer.toBinaryString(n));
+        System.out.println("After Toggling Bit At Position "+ pos + result + "Its Binary Conversion Is "+ Integer.toBinaryString(result));
+
+
 
 
     }
