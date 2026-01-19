@@ -4,25 +4,23 @@ import java.util.*;
 
 public class againbyte {
 
+    public static boolean isPowerOfTwo(int n){
+        if (n <= 0){
+            return false;
+        }return (n & (n-1))== 0;
+    }
+
     public static void main(String args[]) {
 
         Scanner sc = new Scanner(System.in);
-        int oper = sc.nextInt();
-    int n =5;
+        int num = sc.nextInt();
 
-    if (oper == 1){
-        int pos = 1;
-        int bitmask = 1<<pos;
-        int newNumber = bitmask | n;
-        System.out.println(newNumber);
-    }else {
-        int pos = 2;
-        int bitmask = 1<<pos;
-        int notBitmask = ~(bitmask);
-        int newNumber = notBitmask & n;
-        System.out.println(newNumber);
-    }
+        if (isPowerOfTwo(num)){
+            System.out.println(num + " Is Power Of Two");
+        }else{
+            System.out.println(num + " Is Not Power Of Two");
 
+        }
 
 
     }
