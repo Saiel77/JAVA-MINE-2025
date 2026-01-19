@@ -4,25 +4,27 @@ import java.util.*;
 
 public class againbyte {
 
-    public static boolean isPowerOfTwo(int n){
-        if (n <= 0){
-            return false;
-        }return (n & (n-1))== 0;
+    public static void decimaltoBinary(int n){
+
+        System.out.println(Integer.toBinaryString(n));
+
+    }
+    public static void binaryToDecimal(String i){
+         int decimal = Integer.parseInt(i,2);
+        System.out.println(decimal);
     }
 
     public static void main(String args[]) {
 
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        int count = 0;
+        String i = sc.next();
 
-        while (n > 0) {
+        decimaltoBinary(n);
 
-            count += (n & 1);
-            n >>= 1;
+        binaryToDecimal(i);
 
-        }
-        System.out.println("Numbers of 1's In Binary Is "+ count);
+
 
 
 
