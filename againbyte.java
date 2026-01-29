@@ -4,22 +4,24 @@ import java.util.*;
 
 public class againbyte {
 
-    public static void printSum(int i,int n, int sum){
 
-        if (i == n){
-            sum += i;
-            System.out.println(sum);
-            return;
+    public static int calculateFactorial(int n){
+
+        if(n == 1 || n == 0){
+            return 1;
         }
-        sum += i;
-        printSum( i+1, n, sum);
-        System.out.println(i);
+        int factorialn_1 = calculateFactorial(n-1);
+        int factorialofn = n * factorialn_1;
+        return factorialofn;
     }
 
 
     public static void main(String args[]) {
+        int n =5;
+        int factorial = calculateFactorial(n);
 
-        printSum( 1,5,0);
+        System.out.println(factorial);
+
 
 
 
