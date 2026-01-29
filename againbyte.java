@@ -11,8 +11,8 @@ public class againbyte {
             return 1;
         }
         int factorialn_1 = calculateFactorial(n-1);
-        int factorialofn = n * factorialn_1;
-        return factorialofn;
+       n *= factorialn_1;
+        return n;
     }
 
 
