@@ -4,24 +4,25 @@ import java.util.*;
 
 public class againbyte {
 
-
-    public static int calculateFactorial(int n){
-
-        if(n == 1 || n == 0){
-            return 1;
+    public static void printFib(int a, int b, int n){
+        if (n == 0){
+            return;
         }
-        int factorialn_1 = calculateFactorial(n-1);
-       n *= factorialn_1;
-        return n;
+        int c = a + b;
+        System.out.println(c);
+        printFib(b,c,n-1);
+
+
     }
 
-
     public static void main(String args[]) {
-        int n =5;
-        int factorial = calculateFactorial(n);
 
-        System.out.println(factorial);
-
+int a = 0;
+int b =1;
+        System.out.println(a);
+        System.out.println(b);
+        int n =7;
+        printFib(a,b,n-2);
 
 
 
