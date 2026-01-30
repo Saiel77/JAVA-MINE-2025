@@ -4,26 +4,22 @@ import java.util.*;
 
 public class againbyte {
 
- public static int findPower(int x , int n){
-     if (n == 0) {
-         return 1;
+ public static void towerofHanoi(int n, String sroc, String hlpr, String dest){
+     if (n == 1){
+         System.out.println("Transfer disk "+n+" from "+sroc+" to "+dest);
+         return;
      }
-         if (x == 0){
-             return 0;
-         }
-    if (n % 2 == 0){
-        return findPower(x,n/2) * findPower(x, n/2);
-    } else {
-        return findPower(x,n/2) * findPower(x,n/2) * x;
-    }
+     towerofHanoi(n-1, sroc, dest, hlpr );
+     System.out.println(" Transfer disk "+n+" from "+sroc+" to "+dest);
+     towerofHanoi(n-1,hlpr,sroc,dest );
+
  }
 
     public static void main(String args[]) {
 
-     int x =2 , n =5;
+   int n=3;
 
-   int ans = findPower(x,n);
-        System.out.println(ans);
+   towerofHanoi(n, "S", "H", "D");
 
 
 
