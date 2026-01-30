@@ -11,9 +11,11 @@ public class againbyte {
          if (x == 0){
              return 0;
          }
-     int powerofxm1 = findPower(x,n-1);
-     int powerofx = x * powerofxm1;
-    return powerofx;
+    if (n % 2 == 0){
+        return findPower(x,n/2) * findPower(x, n/2);
+    } else {
+        return findPower(x,n/2) * findPower(x,n/2) * x;
+    }
  }
 
     public static void main(String args[]) {
