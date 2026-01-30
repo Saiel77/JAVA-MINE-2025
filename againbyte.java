@@ -4,25 +4,24 @@ import java.util.*;
 
 public class againbyte {
 
-    public static void printFib(int a, int b, int n){
-        if (n == 0){
-            return;
-        }
-        int c = a + b;
-        System.out.println(c);
-        printFib(b,c,n-1);
-
-
-    }
+ public static int findPower(int x , int n){
+     if (n == 0) {
+         return 1;
+     }
+         if (x == 0){
+             return 0;
+         }
+     int powerofxm1 = findPower(x,n-1);
+     int powerofx = x * powerofxm1;
+    return powerofx;
+ }
 
     public static void main(String args[]) {
 
-int a = 0;
-int b =1;
-        System.out.println(a);
-        System.out.println(b);
-        int n =7;
-        printFib(a,b,n-2);
+     int x =2 , n =5;
+
+   int ans = findPower(x,n);
+        System.out.println(ans);
 
 
 
