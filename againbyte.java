@@ -17,7 +17,7 @@ public class againbyte {
 
     public static void main(String args[]) {
 
-   int n=3;
+   int n=2;
 
    towerofHanoi(n, "S", "H", "D");
 
