@@ -4,22 +4,21 @@ import java.util.*;
 
 public class againbyte {
 
- public static void towerofHanoi(int n, String sroc, String hlpr, String dest){
-     if (n == 1){
-         System.out.println("Transfer disk "+n+" from "+sroc+" to "+dest);
-         return;
-     }
-     towerofHanoi(n-1, sroc, dest, hlpr );
-     System.out.println(" Transfer disk "+n+" from "+sroc+" to "+dest);
-     towerofHanoi(n-1,hlpr,sroc,dest );
+    public static void reversePrint(String str, int idx){
+        if (idx == 0) {
+            System.out.println(str.charAt(idx));
+            return;
+        }
+            System.out.print(str.charAt(idx));
+            reversePrint(str,idx-1);
 
- }
+    }
+
+
 
     public static void main(String args[]) {
-
-   int n=2;
-
-   towerofHanoi(n, "S", "H", "D");
+        String str = "LOLO";
+        reversePrint(str,str.length()-1);
 
 
 
