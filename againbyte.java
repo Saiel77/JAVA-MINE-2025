@@ -4,21 +4,33 @@ import java.util.*;
 
 public class againbyte {
 
-    public static void reversePrint(String str, int idx){
-        if (idx == 0) {
-            System.out.println(str.charAt(idx));
+    public static int first = -1;
+    public static int last = -1;
+
+    public static void occuranceCount(String str, int idx, char el){
+
+        if (idx == str.length()){
+            System.out.println(first);
+            System.out.println(last);
             return;
         }
-            System.out.print(str.charAt(idx));
-            reversePrint(str,idx-1);
 
+
+        if (str.charAt(idx)== el){
+            if (first == -1){
+                first =idx;
+            }else {
+                last = idx;
+            }
+
+        }
+        occuranceCount(str,idx+1, el);
     }
 
-
-
     public static void main(String args[]) {
-        String str = "LOLO";
-        reversePrint(str,str.length()-1);
+
+        String str = "abdafgoisa";
+        occuranceCount(str,0,'a');
 
 
 
