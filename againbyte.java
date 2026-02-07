@@ -4,33 +4,27 @@ import java.util.*;
 
 public class againbyte {
 
-    public static int first = -1;
-    public static int last = -1;
+   public static boolean checkSortedArray(int arr[], int idx){
 
-    public static void occuranceCount(String str, int idx, char el){
+       if (idx == arr.length-1){
+           return true;
+       }
 
-        if (idx == str.length()){
-            System.out.println(first);
-            System.out.println(last);
-            return;
-        }
+       if (arr[idx] < arr[idx+1]){
+           // Array is Sorted
+           return checkSortedArray(arr,idx+1);
 
+       }else {
+           return false;
+       }
 
-        if (str.charAt(idx)== el){
-            if (first == -1){
-                first =idx;
-            }else {
-                last = idx;
-            }
-
-        }
-        occuranceCount(str,idx+1, el);
-    }
+   }
 
     public static void main(String args[]) {
 
-        String str = "abdafgoisa";
-        occuranceCount(str,0,'a');
+        int arr[] = {1,2,3,4,5};
+
+        System.out.println(checkSortedArray(arr,0));
 
 
 
