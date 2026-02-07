@@ -10,19 +10,17 @@ public class againbyte {
            return true;
        }
 
-       if (arr[idx] < arr[idx+1]){
-           // Array is Sorted
-           return checkSortedArray(arr,idx+1);
-
-       }else {
+       if (arr[idx] >= arr[idx+1]) {
+           // Array is UnSorted
            return false;
        }
+       return checkSortedArray(arr,idx+1);
 
    }
 
     public static void main(String args[]) {
 
-        int arr[] = {1,2,3,4,5};
+        int arr[] = {1,2,3,4,1};
 
         System.out.println(checkSortedArray(arr,0));
 
