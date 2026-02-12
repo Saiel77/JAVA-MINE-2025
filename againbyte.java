@@ -4,31 +4,33 @@ import java.util.*;
 
 public class againbyte {
 
-  public static void printNewString(String str,int idx,int count,String newString){
+  public static boolean[] map = new boolean[26];
+
+  public static void removeDuplicates(String str, int idx, String newString){
 
       if (idx == str.length()){
-          for (int i=0; i<count; i++){
-              newString += 'x';
-          }
           System.out.println(newString);
           return;
       }
 
-      char currChar = str.charAt(idx);
-      if(currChar == 'x'){
-          count++;
-          printNewString(str,idx+1,count, newString);
+
+      char Currentchar = str.charAt(idx);
+      if (map[Currentchar - 'a']){
+          removeDuplicates(str, idx+1, newString);
       }else {
-          newString += currChar;
-          printNewString(str, idx+1, count, newString);
+          newString += Currentchar;
+          map[Currentchar-'a']= true;
+          removeDuplicates(str, idx+1, newString);
       }
+
+
   }
 
 
     public static void main(String args[]) {
 
-        String str = "axbxxdx";
-        printNewString(str,0,0,"");
+        String str = "abbccda";
+        removeDuplicates(str,0,"");
 
 
 
