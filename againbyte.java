@@ -29,7 +29,7 @@ public class againbyte {
 
     public static void main(String args[]) {
 
-        String str = "abbccda";
+        String str = "abbcda";
         removeDuplicates(str,0,"");
 
 
