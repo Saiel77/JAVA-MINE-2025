@@ -5,30 +5,27 @@ import java.util.HashSet;
 
 public class againbyte {
 
-  public static void subSquences(String str, int idx, String newString,HashSet <String> set){
-      if (idx == str.length()) {
-          if (set.contains(newString))
-              return;
-          else {
-              System.out.println(newString);
-              set.add(newString);
-              return;
-          }
-      }
+ public static String[] keypad = {".","abc","def","ghi","jkl","mno","pqrs","tu","vwx","yz" };
 
-      char currChar = str.charAt(idx);
-      // to be in newString
-      subSquences(str,idx+1,newString+currChar,set);
-      // Not to be in NewString
-      subSquences(str,idx+1,newString,set);
-  }
+    public static void printComb(String str, int idx, String Combination){
 
+        if (idx == str.length()){
+            System.out.println(Combination);
+            return;
+        }
+
+        char CurrChar = str.charAt(idx);
+        String Mapping = keypad[CurrChar-'0'];
+
+        for (int i=0; i<Mapping.length(); i++){
+            printComb(str,idx+1, Combination+Mapping.charAt(i));
+        }
+    }
 
     public static void main(String args[]) {
 
-        String str = "aaa";
-        HashSet<String> set = new HashSet<>();
-        subSquences(str,0,"", set);
+        String str = "23";
+       printComb(str,0,"");
 
 
 
