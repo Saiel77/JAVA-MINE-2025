@@ -5,27 +5,25 @@ import java.util.HashSet;
 
 public class againbyte {
 
- public static String[] keypad = {".","abc","def","ghi","jkl","mno","pqrs","tu","vwx","yz" };
+ public static void permutationabc(String str, String Permutation){
 
-    public static void printComb(String str, int idx, String Combination){
+     if (str.length()== 0){
+         System.out.println(Permutation);
+         return;
+     }
+     for (int i=0; i<str.length(); i++){
+         char currChar = str.charAt(i);
+         String newString = str.substring(0,i)+str.substring(i+1);
+         permutationabc(newString,Permutation+currChar);
 
-        if (idx == str.length()){
-            System.out.println(Combination);
-            return;
-        }
-
-        char CurrChar = str.charAt(idx);
-        String Mapping = keypad[CurrChar-'0'];
-
-        for (int i=0; i<Mapping.length(); i++){
-            printComb(str,idx+1, Combination+Mapping.charAt(i));
-        }
-    }
+     }
+ }
 
     public static void main(String args[]) {
+     String str = "abc";
+     permutationabc(str,"");
 
-        String str = "4";
-       printComb(str,0,"");
+
 
 
 
