@@ -5,24 +5,30 @@ import java.util.HashSet;
 
 public class againbyte {
 
- public static void permutationabc(String str, String Permutation){
+    public static int countPaths(int i,int j,int n, int m) {
+        if (i == n || j == m){
+            return 0;
+    }
+            if (i == n-1 && j==m-1){
+                return 1;
+            }
 
-     if (str.length()== 0){
-         System.out.println(Permutation);
-         return;
-     }
-     for (int i=0; i<str.length(); i++){
-         char currChar = str.charAt(i);
-         String newString = str.substring(0,i)+str.substring(i+1);
-         permutationabc(newString,Permutation+currChar);
 
-     }
- }
+        // Moving DowanWards
+        int downpath = countPaths(i+1,j,n,m);
+        //Moving Right
+        int rightPath = countPaths(i,j+1,n,m);
+
+        return downpath+rightPath;
+    }
+
 
     public static void main(String args[]) {
-     String str = "abc";
-     permutationabc(str,"");
+     int n =3;
+     int m=3;
 
+     int totalPaths = countPaths(0,0,n,m);
+        System.out.println(totalPaths);
 
 
 
