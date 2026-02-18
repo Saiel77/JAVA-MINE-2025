@@ -5,30 +5,31 @@ import java.util.HashSet;
 
 public class againbyte {
 
-    public static int countPaths(int i,int j,int n, int m) {
-        if (i == n || j == m){
-            return 0;
-    }
-            if (i == n-1 && j==m-1){
-                return 1;
-            }
+   public static int placeTiles(int n,int m){
 
+       if (n == m){
+           return 2;
+       }
+       if (n < m){
+           return 1;
+       }
 
-        // Moving DowanWards
-        int downpath = countPaths(i+1,j,n,m);
-        //Moving Right
-        int rightPath = countPaths(i,j+1,n,m);
+       //Placing Tiles Vertically
+       int vertTiles = placeTiles(n-m, m);
+       //Placing Tiles Horizontally
+       int Horizontiles = placeTiles(n-1,m);
 
-        return downpath+rightPath;
-    }
+       return vertTiles+Horizontiles;
+
+   }
 
 
     public static void main(String args[]) {
      int n =3;
      int m=3;
 
-     int totalPaths = countPaths(0,0,n,m);
-        System.out.println(totalPaths);
+     int totalTiles = placeTiles(n,m);
+        System.out.println(totalTiles);
 
 
 
