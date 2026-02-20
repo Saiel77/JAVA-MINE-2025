@@ -5,31 +5,23 @@ import java.util.HashSet;
 
 public class againbyte {
 
-   public static int placeTiles(int n,int m){
+  public static int callGuests(int n){
 
-       if (n == m){
-           return 2;
-       }
-       if (n < m){
-           return 1;
-       }
+      if (n <= 1){
+          return 1;
+      }
+      //1st Way
+      int way1 = callGuests(n-1);
+      //2nd Way
+      int way2 = (n-1)*callGuests(n-2);
 
-       //Placing Tiles Vertically
-       int vertTiles = placeTiles(n-m, m);
-       //Placing Tiles Horizontally
-       int Horizontiles = placeTiles(n-1,m);
-
-       return vertTiles+Horizontiles;
-
-   }
-
+      return way1 + way2;
+  }
 
     public static void main(String args[]) {
-     int n=4;
-     int m=2;
+     int n =4;
 
-     int totalTiles = placeTiles(n,m);
-        System.out.println(totalTiles);
+        System.out.println(callGuests(n));
 
 
 
