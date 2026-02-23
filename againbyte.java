@@ -6,34 +6,31 @@ import java.util.HashSet;
 
 public class againbyte {
 
-    public static void printSubset(ArrayList<Integer> subset){
-        for (int i=0; i<subset.size(); i++){
-            System.out.print(subset.get(i)+" ");
+
+    public static void printPermutation(String str, String perm, int idx){
+
+        if (str.length() == 0){
+            System.out.println(perm);
+            return;
         }
-        System.out.println();
+
+        for (int i=0; i<str.length(); i++){
+            char currChar = str.charAt(i);
+            String newStr = str.substring(0,i)+str.substring(i+1);
+            printPermutation(newStr, perm+currChar,idx+1);
+
+        }
+
     }
 
- public static void findSubset(int n, ArrayList<Integer> subset){
-
-     if (n == 0){
-         printSubset(subset);
-         return;
-     }
 
 
-     // Add Hoga
-     subset.add(n);
-     findSubset(n-1,subset);
-     // Add Nahi Hoga
-     subset.remove(subset.size()-1);
-     findSubset(n-1,subset);
 
- }
 
     public static void main(String args[]) {
-     int n =3;
-     ArrayList<Integer> subset = new ArrayList<>();
-     findSubset(n,subset);
+
+        String str = "ABC";
+        printPermutation(str,"",0);
 
 
 
