@@ -17,21 +17,30 @@ class Pen{
 
 }
 
+class Student{
+    String name;
+    String age;
+
+    public void printInfo(){
+        System.out.println(name);
+        System.out.println(age);
+    }
+}
+
 public class againbyte{
 
     public static void main(String args[]){
 
-        Pen pen1 = new Pen();
-        pen1.type ="Ball";
-        pen1.color="Blue";
+     Student s1 =new Student();
+     s1.name = "Saiel";
+     s1.age = "21";
 
-        Pen pen2 = new Pen();
-        pen2.type = "Gel";
-        pen2.color = "Black";
+     Student s2 = new Student();
+     s2.name = "Nagyaa";
+     s2.age = "23";
 
-        pen1.printColor();
-        pen2.printColor();
-
+     s1.printInfo();
+     s2.printInfo();
 
     }
 
