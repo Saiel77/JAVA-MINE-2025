@@ -11,6 +11,10 @@ class Pen{
         System.out.println("Writing Somethin");
     }
 
+    public void printColor(){
+        System.out.println(this.color);
+    }
+
 }
 
 public class againbyte{
@@ -21,7 +25,14 @@ public class againbyte{
         pen1.type ="Ball";
         pen1.color="Blue";
 
-        pen1.write();
+        Pen pen2 = new Pen();
+        pen2.type = "Gel";
+        pen2.color = "Black";
+
+        pen1.printColor();
+        pen2.printColor();
+
+
     }
 
 }
