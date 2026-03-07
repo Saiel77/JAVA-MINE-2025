@@ -35,12 +35,8 @@ public class againbyte{
      s1.name = "Saiel";
      s1.age = "21";
 
-     Student s2 = new Student();
-     s2.name = "Nagyaa";
-     s2.age = "23";
-
      s1.printInfo();
-     s2.printInfo();
+
 
     }
 
