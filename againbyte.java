@@ -25,7 +25,13 @@ class Student{
         System.out.println(name);
         System.out.println(age);
     }
+
+    Student(){
+        System.out.println("constructor called");
+    }
 }
+
+
 
 public class againbyte{
 
