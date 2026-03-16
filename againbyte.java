@@ -19,16 +19,22 @@ class Pen{
 
 class Student{
     String name;
-    String age;
+   int age;
 
     public void printInfo(){
         System.out.println(name);
         System.out.println(age);
     }
 
-    Student(){
-        System.out.println("constructor called");
+    Student(Student s2){
+        this.name = s2.name;
+        this.age = s2.age;
+
     }
+    Student(){
+
+    }
+
 }
 
 
@@ -39,9 +45,12 @@ public class againbyte{
 
      Student s1 =new Student();
      s1.name = "Saiel";
-     s1.age = "21";
+     s1.age = 21;
 
-     s1.printInfo();
+     Student s2 = new Student(s1);
+
+
+     s2.printInfo();
 
 
     }
