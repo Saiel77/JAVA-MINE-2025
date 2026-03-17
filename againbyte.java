@@ -21,19 +21,17 @@ class Student{
     String name;
    int age;
 
-    public void printInfo(){
-        System.out.println(name);
-        System.out.println(age);
-    }
+   public void printInfo(String name){
+       System.out.println(name);
+   }
 
-    Student(Student s2){
-        this.name = s2.name;
-        this.age = s2.age;
+   public void printInfo(int age){
+       System.out.println(age);
+   }
+   public void printInfo(String name,int age){
+       System.out.println(name + " " + age);
+   }
 
-    }
-    Student(){
-
-    }
 
 }
 
@@ -47,10 +45,9 @@ public class againbyte{
      s1.name = "Saiel";
      s1.age = 21;
 
-     Student s2 = new Student(s1);
+     s1.printInfo(s1.name,s1.age);
 
 
-     s2.printInfo();
 
 
     }
