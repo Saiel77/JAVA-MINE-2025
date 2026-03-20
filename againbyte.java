@@ -1,23 +1,27 @@
 import  java.util.*;
 
-class Shape {
-    String color;
-}
 
-class Triangle extends Shape{
+interface Animal{
+    void walk();
 
 }
 
+
+class Horse implements Animal{
+    public void walk(){
+        System.out.println("Horse Walks ON 4 LEGS");
+    }
+}
 
 
 public class againbyte{
 
-    public static void main(String args[]){
 
-   Triangle t1 = new Triangle();
-   t1.color = "red";
+public static void main(String args[]){
 
-        System.out.println(t1.color);
+    Horse horse = new Horse();
+    horse.walk();
+
 
 
 
