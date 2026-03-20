@@ -9,7 +9,7 @@ interface Animal{
 
 class Horse implements Animal{
     public void walk(){
-        System.out.println("Horse waaalks ON 4 LEGS");
+        System.out.println("Horse walks ON 4 LEGS");
     }
 }
 
