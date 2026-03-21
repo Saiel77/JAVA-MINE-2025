@@ -35,6 +35,11 @@ public static void main(String args[]){
     System.out.println(list);
 
 
+    //DELETE ELEMENT
+    list.remove(3);
+    System.out.println(list);
+
+
 
 
     }
