@@ -43,6 +43,12 @@ public static void main(String args[]){
     int size = list.size();
     System.out.println(size);
 
+    //LOOPS
+    for (int i=0; i<list.size(); i++){
+        System.out.print(list.get(i));
+    }
+    System.out.println();
+
 
 
 
