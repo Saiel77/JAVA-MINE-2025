@@ -1,17 +1,6 @@
 import  java.util.*;
 
 
-interface Animal{
-    void walk();
-
-}
-
-
-class Horse implements Animal{
-    public void walk(){
-        System.out.println("Horse walks ON 4 LEGS");
-    }
-}
 
 
 public class againbyte{
@@ -19,10 +8,13 @@ public class againbyte{
 
 public static void main(String args[]){
 
-    Horse horse = new Horse();
-    horse.walk();
+  ArrayList<Integer> list = new ArrayList<Integer>();
 
+  list.add(0);
+  list.add(1);
+  list.add(2);
 
+    System.out.println(list);
 
 
 
