@@ -39,6 +39,10 @@ public static void main(String args[]){
     list.remove(3);
     System.out.println(list);
 
+    //DETERMINE SIZE
+
+    System.out.println(list.size());
+
 
 
 
