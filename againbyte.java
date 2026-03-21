@@ -40,8 +40,8 @@ public static void main(String args[]){
     System.out.println(list);
 
     //DETERMINE SIZE
-
-    System.out.println(list.size());
+    int size = list.size();
+    System.out.println(size);
 
 
 
