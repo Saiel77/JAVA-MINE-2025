@@ -12,8 +12,8 @@ public static void main(String args[]){
 
   // ADD ELEMENTS
   list.add(0);
-  list.add(1);
   list.add(2);
+  list.add(3);
 
     System.out.println(list);
 
@@ -22,6 +22,13 @@ public static void main(String args[]){
     int element = list.get(1);
 
     System.out.println(element);
+
+    // ADD ELEMENTS IN BETWEEN
+
+    list.add(1,1);
+
+    System.out.println(list);
+
 
 
 
