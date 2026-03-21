@@ -29,6 +29,11 @@ public static void main(String args[]){
 
     System.out.println(list);
 
+    //CHANGE ELEMENT OR SET
+
+    list.set(0,5);
+    System.out.println(list);
+
 
 
 
