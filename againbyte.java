@@ -51,7 +51,7 @@ public static void main(String args[]){
     }
     System.out.println();
 
-    //SORTI
+    //SORT
 
     Collections.sort(list);
     System.out.println(list);
