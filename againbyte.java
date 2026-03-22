@@ -1,4 +1,6 @@
-import  java.util.*;
+import  java.util.ArrayList;
+import java.util.Collections;
+
 
 
 
@@ -48,6 +50,11 @@ public static void main(String args[]){
         System.out.print(list.get(i));
     }
     System.out.println();
+
+    //SORTIN
+
+    Collections.sort(list);
+    System.out.println(list);
 
 
 
