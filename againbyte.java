@@ -51,7 +51,7 @@ public static void main(String args[]){
     }
     System.out.println();
 
-    //SORTIa
+    //SORTIal
 
     Collections.sort(list);
     System.out.println(list);
