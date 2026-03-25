@@ -6,6 +6,12 @@ import java.util.*;
 
     Node head;
 
+    private int size;
+
+    LL(){
+      this.size = 0;
+    }
+
     class Node{
       String data;
       Node next;
@@ -13,6 +19,7 @@ import java.util.*;
       Node(String data){
         this.data = data;
         this.next = null;
+        size++;
       }
     }
 
@@ -62,6 +69,7 @@ import java.util.*;
       if (head == null){
         System.out.println("The List is Empty");
       }
+       size --;
       head = head.next;
 
     }
@@ -71,10 +79,12 @@ import java.util.*;
       if (head == null){
         System.out.println("The List is Empty");
       }
+      size--;
       if (head.next == null){
         head = null;
         return;
       }
+
       Node secondLast = head;
       Node lastNode = head.next;
       while (lastNode.next != null){
@@ -83,6 +93,10 @@ import java.util.*;
       }
       secondLast.next = null;
 
+    }
+
+    public int getSize(){
+      return size;
     }
 
 public static void main(String args[]) {
@@ -103,6 +117,8 @@ list.printList();
 
 list.deleteLast();
 list.printList();
+
+  System.out.println(list.getSize());
 
 }
     }
