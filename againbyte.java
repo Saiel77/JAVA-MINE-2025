@@ -120,6 +120,9 @@ list.printList();
 
   System.out.println(list.getSize());
 
+  list.addFirst("this");
+  System.out.println(list.getSize());
+
 }
     }
 
