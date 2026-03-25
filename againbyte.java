@@ -98,6 +98,11 @@ public static void main(String args[]) {
 list.addFirst("this");
 list.printList();
 
+list.deleteFirst();
+list.printList();
+
+
+
 }
     }
 
