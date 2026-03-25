@@ -101,7 +101,8 @@ list.printList();
 list.deleteFirst();
 list.printList();
 
-
+list.deleteLast();
+list.printList();
 
 }
     }
