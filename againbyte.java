@@ -70,8 +70,6 @@ public static void main(String args[]) {
   list.addFirst("is");
 
   list.printList();
-  list.addLast("list");
-  list.printList();
 
 
 
