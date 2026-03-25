@@ -1,64 +1,80 @@
-import  java.util.ArrayList;
-import java.util.Collections;
+import java.util.*;
 
 
 
+  class LL{
 
+    Node head;
 
-public class againbyte{
+    class Node{
+      String data;
+      Node next;
 
-
-public static void main(String args[]){
-
-  ArrayList<Integer> list = new ArrayList<Integer>();
-
-  // ADD ELEMENTS
-  list.add(0);
-  list.add(2);
-  list.add(3);
-
-    System.out.println(list);
-
-    //GET ELEMENTS
-
-    int element = list.get(1);
-
-    System.out.println(element);
-
-    // ADD ELEMENTS IN BETWEEN
-
-    list.add(1,1);
-
-    System.out.println(list);
-
-    //CHANGE ELEMENT OR SET
-
-    list.set(0,5);
-    System.out.println(list);
-
-
-    //DELETE ELEMENT
-    list.remove(3);
-    System.out.println(list);
-
-    //DETERMINE SIZE
-    int size = list.size();
-    System.out.println(size);
-
-    //LOOPS
-    for (int i=0; i<list.size(); i++){
-        System.out.print(list.get(i));
+      Node(String data){
+        this.data = data;
+        this.next = null;
+      }
     }
-    System.out.println();
-
-    //SORTIal
-
-    Collections.sort(list);
-    System.out.println(list);
 
 
+    // Add - First,Last
+    public void addFirst(String data){
+      Node newNode = new Node(data);
+      if (head == null){
+        head = newNode;
+        return;
+      }
+      newNode.next = head;
+      head = newNode;
+    }
 
+    public void addLast(String data){
+      Node newNode = new Node(data);
+      if (head == null){
+        head = newNode;
+        return;
+      }
+
+      Node currnode = head;
+      while(currnode.next != null){
+        currnode = currnode.next;
+
+      }
+      currnode.next = newNode;
 
     }
+
+    public void printList(){
+      if (head == null){
+        System.out.println("ListIs Empty");
+      }
+      Node currnode = head;
+      while (currnode != null){
+        System.out.print(currnode.data + "->");
+        currnode = currnode.next;
+      }
+      System.out.println("NULL");
+
+    }
+
+
+
+    
+
+
+
+public static void main(String args[]) {
+
+  LL list = new LL();
+  list.addFirst("a");
+  list.addFirst("is");
+
+  list.printList();
+  list.addLast("list");
+  list.printList();
+
+
 
 }
+    }
+
