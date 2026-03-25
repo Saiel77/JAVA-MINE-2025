@@ -57,11 +57,33 @@ import java.util.*;
 
     }
 
+    //Delete First
+    public void deleteFirst(){
+      if (head == null){
+        System.out.println("The List is Empty");
+      }
+      head = head.next;
 
+    }
 
-    
+    //Delete Last
+    public void deleteLast(){
+      if (head == null){
+        System.out.println("The List is Empty");
+      }
+      if (head.next == null){
+        head = null;
+        return;
+      }
+      Node secondLast = head;
+      Node lastNode = head.next;
+      while (lastNode.next != null){
+        lastNode = lastNode.next;
+        secondLast = secondLast.next;
+      }
+      secondLast.next = null;
 
-
+    }
 
 public static void main(String args[]) {
 
@@ -70,8 +92,11 @@ public static void main(String args[]) {
   list.addFirst("is");
 
   list.printList();
+  list.addLast("list");
+  list.printList();
 
-
+list.addFirst("this");
+list.printList();
 
 }
     }
