@@ -132,6 +132,19 @@ class LL {
       head = prevNode;
     }
 
+    public Node reverseRecursive(Node head){
+    if (head == null || head.next == null){
+      return head;
+    }
+
+    Node newhead=reverseRecursive(head);
+    head.next.next = head;
+    head.next = null;
+
+    return newhead;
+
+    }
+
 
 
 
