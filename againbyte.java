@@ -137,11 +137,11 @@ class LL {
       return head;
     }
 
-    Node newhead=reverseRecursive(head);
+    Node newHead = reverseRecursive(head.next);
     head.next.next = head;
     head.next = null;
 
-    return newhead;
+    return newHead;
 
     }
 
@@ -159,7 +159,9 @@ public static void main(String args[]) {
   list.addLast("4");
 //Prin
 list.printList();
-  list.reverseIterate();
+
+
+  list.head = list.reverseRecursive(list.head);
   list.printList();
 
 
