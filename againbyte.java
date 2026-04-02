@@ -18,7 +18,7 @@ public static void main(String args[]) {
   list.addLast(3);
 
   System.out.println("Linked List :"+ list);
-// bff
+// bffswf
 int index = list.indexOf(7);
 
 if (index != -1){
