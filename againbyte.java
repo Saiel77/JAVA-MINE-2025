@@ -3,52 +3,32 @@ import java.util.*;
 
 class againbyte{
 
-  static class Node{
-    int data;
-    Node next;
+  class stack {
+    static ArrayList<Integer>  list = new ArrayList<Integer>();
 
-    public Node(int data){
-      this.data = data;
-      next = null;
-
-    }
-  }
-
-  static class stack{
-    public static  Node head;
     public static boolean isEmpty(){
-      return head == null;
+      return list.size() == 0;
     }
 
+    //Push
     public static void push(int data){
-      Node newNode = new Node(data);
-
-      if (isEmpty()){
-        head =newNode;
-        return;
-      }
-      newNode.next = head;
-      head = newNode;
+      list.add(data);
     }
 
+    //pop
     public static int pop(){
-      if (isEmpty()){
-        return -1;
-      }
-      int top = head.data;
-      head = head.next;
+      int top = list.get(list.size()-1);
+      list.remove(list.size-1);
       return top;
     }
 
-    public static int peek(){
-      if (isEmpty()){
-        return -1;
-      }
-      return head.data;
-    }
+    //peek
+
+
+
+
 
   }
-
 public static void main(String args[]){
 
     Stack s = new Stack();
