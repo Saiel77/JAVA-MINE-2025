@@ -1,9 +1,9 @@
 import java.util.*;
 
 
-class againbyte{
+ class againbyte{
 
-  class stack {
+  static class stack {
     static ArrayList<Integer>  list = new ArrayList<Integer>();
 
     public static boolean isEmpty(){
@@ -17,15 +17,22 @@ class againbyte{
 
     //pop
     public static int pop(){
+      if (isEmpty()){
+        return -1;
+      }
       int top = list.get(list.size()-1);
-      list.remove(list.size-1);
+      list.remove(list.size()-1);
       return top;
     }
 
     //peek
+    public static int peek(){
+      if (isEmpty()){
+        return -1;
+      }
+      return list.get(list.size()-1);
 
-
-
+    }
 
 
   }
