@@ -17,6 +17,15 @@ import java.util.*;
 
      }
 
+     public static void reverse(Stack<Integer> s){
+         if (s.isEmpty()){
+             return;
+         }
+         int top = s.pop();
+         reverse(s);
+         pushAtBottom(top,s);
+     }
+
 
 public static void main(String args[]){
 
@@ -26,7 +35,9 @@ public static void main(String args[]){
     s.push(2);
     s.push(3);
 
-    pushAtBottom(4,s);
+    reverse(s);
+
+
 
 
     while (!s.isEmpty()){
