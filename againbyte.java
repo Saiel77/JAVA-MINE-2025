@@ -18,7 +18,7 @@ import java.util.*;
      }
 
 
-      //Code for reverse block
+      //Code for reverse block in Stack
      public static void reverse(Stack<Integer> s){
          if (s.isEmpty()){
              return;
