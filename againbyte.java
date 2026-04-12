@@ -18,7 +18,7 @@ import java.util.*;
      }
 
 
-      //Code for
+      //Code for reverse
      public static void reverse(Stack<Integer> s){
          if (s.isEmpty()){
              return;
