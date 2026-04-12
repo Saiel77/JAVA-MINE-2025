@@ -17,6 +17,8 @@ import java.util.*;
 
      }
 
+
+      //Code
      public static void reverse(Stack<Integer> s){
          if (s.isEmpty()){
              return;
@@ -35,7 +37,7 @@ public static void main(String args[]){
     s.push(2);
     s.push(3);
 
-    reverse(s);
+    reverse(s) ;
 
 
 
