@@ -1,55 +1,36 @@
 import java.util.*;
 
 
- class againbyte{
+ public class againbyte{
 
-     public static void pushAtBottom(int data,Stack<Integer> s){
+     static class Node {
 
-         if (s.isEmpty()){
-             s.push(data);
-             return;
+         int data;
+         Node next;
 
+         public Node(int data) {
+             this.data = data;
+             next = null;
          }
-         int top = s.pop();
-         pushAtBottom(data,s);
-         s.push(top);
+     }
 
+     static class Stack{
+         public static Node head;
+         public static boolean isEmpty(){
+             return head == null;
+         }
+
+         public static void push(int data){
+             Node newNode = new Node(data);
+             if(isEmpty()){
+                 head = newNode;
+                 return;
+             }
+             newNode.next = head;
+             head = newNode;
+         }
 
      }
 
 
-      //Code for reverse block in Stack
-     public static void reverse(Stack<Integer> s){
-         if (s.isEmpty()){
-             return;
-         }
-         int top = s.pop();
-         reverse(s);
-         pushAtBottom(top,s);
-     }
-
-
-public static void main(String args[]){
-
-    Stack<Integer> s = new Stack<>();
-
-    s.push(1);
-    s.push(2);
-    s.push(3);
-
-    reverse(s) ;
-
-
-
-
-    while (!s.isEmpty()){
-      System.out.println(s.peek());
-      s.pop();
-    }
-
-
-
-
-}
-
-}
+ }
