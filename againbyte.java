@@ -10,7 +10,15 @@ public class againbyte{
         int top = s.pop();
         pushAtBottom(data,s);
         s.push(top);
+    }
 
+    public static void reverse(Stack<Integer> s){
+        if (s.isEmpty()){
+            return;
+        }
+        int top = s.pop();
+        reverse(s);
+        pushAtBottom(top,s);
 
     }
 
@@ -23,7 +31,7 @@ public class againbyte{
             s.push(2);
             s.push(3);
 
-           pushAtBottom(4,s);
+           reverse(s);
 
 
             while(!s.isEmpty()){
