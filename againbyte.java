@@ -1,64 +1,42 @@
 import java.util.*;
 
 public class againbyte{
-    static class Queue {
-        static Stack<Integer> s1 = new Stack<>();
-        static Stack<Integer> s2 = new Stack<>();
 
+    static class Node{
+        int data;
+        Node left;
+        Node right;
 
-        public static boolean isEmpty() {
-            return s1.isEmpty();
+        Node(int data){
+            this.data = data;
+            this.left = null;
+            this.right = null;
         }
+    }
 
-        public static void add(int data){
-           while (!s1.isEmpty()){
-                s2.push(s1.pop());
+    static class BinaryTree {
+        static int idx = -1;
+        public static Node buildTree(int nodes[]){
+            idx++;
+            if (nodes[idx] == -1){
+                return null;
             }
-            s1.push(data);
+            Node newNode = new Node(nodes[idx]);
+            newNode.left = buildTree(nodes);
+            newNode.right = buildTree(nodes);
 
-            while (!s2.isEmpty()){
-                s1.push(s2.pop());
-
-            }
+            return newNode;
         }
-
-        public static int remove(){
-            if (isEmpty()){
-                System.out.println("empty queue");
-                return -1;
-            }
-            return s1.pop();
-        }
-
-        public static int peek(){
-            if (isEmpty()){
-                System.out.println("empty queue");
-                return -1;
-            }
-            return s1.peek();
-
-        }
-
     }
 
 
-
     public static void main(String args[]){
-     //  Queue q= new Queue();
-      // Queue<Integer> q = new LinkedList<>();
-       Queue q = new Queue();
-
-       q.add(1);
-       q.add(2);
-       q.add(3);
-       q.add(4);
-       q.add(5);
+        int nodes[] = {1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1,};
+        BinaryTree tree = new BinaryTree();
+        Node root = tree.buildTree(nodes);
+        System.out.println(root.data);
 
 
-       while (!q.isEmpty()){
-           System.out.println(q.peek());
-           q.remove();
-       }
 
 
 
