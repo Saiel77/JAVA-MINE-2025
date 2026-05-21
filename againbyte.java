@@ -123,6 +123,20 @@ public class againbyte{
         return myHeight;
         }
 
+        public static int diameter(Node root){
+        if (root == null){
+            return 0;
+        }
+
+        int diam1 = diameter(root.left);
+        int diam2 = diameter(root.right);
+        int diam3 = heightOfTree(root.left)+heightOfTree(root.right)+ 1;
+
+        int maxDiam = Math.max(diam3,Math.max(diam1,diam2));
+
+        return maxDiam;
+        }
+
 
 
 
@@ -132,7 +146,7 @@ public class againbyte{
         int nodes[] = {1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1,};
         BinaryTree tree = new BinaryTree();
         Node root = tree.buildTree(nodes);
-        System.out.println(heightOfTree(root));
+        System.out.println(diameter(root));
 
 
 
