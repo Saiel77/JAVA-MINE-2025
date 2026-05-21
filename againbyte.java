@@ -88,6 +88,16 @@ public class againbyte{
         }
         }
 
+        public static int countofNodes(Node root){
+        if (root == null){
+            return 0;
+        }
+        int leftNodes = countofNodes(root.left);
+        int rightNodes = countofNodes(root.right);
+
+        return leftNodes + rightNodes +1;
+        }
+
 
 
 
@@ -97,7 +107,7 @@ public class againbyte{
         int nodes[] = {1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1,};
         BinaryTree tree = new BinaryTree();
         Node root = tree.buildTree(nodes);
-        levelorder(root);
+        System.out.println(countofNodes(root));
 
 
 
