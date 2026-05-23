@@ -52,6 +52,43 @@ public class againbyte {
             }
     }
 
+    public static Node delete(Node root, int val){
+        if (root.data > val){
+            root.left = delete(root.left, val);
+        }else if (root.data < val){
+            root.right = delete(root.right, val);
+        }else{//root data == val
+            //Case 1
+            if (root.left == null && root.right == null){
+                return null;
+            }
+            //Case 2
+            if (root.left == null){
+                return root.right;
+            }
+            else if (root.right == null){
+                return root.left;
+            }
+
+            //Case 3
+            Node IS = inorderSuccesor(root.right);
+            root.data = IS.data;
+            root.right = delete(root.right, IS.data);
+        }
+        return root;
+    }
+
+    public static Node inorderSuccesor(Node root){
+        while(root.left != null){
+            root = root.left;
+
+        }
+        return root;
+    }
+
+
+
+
 
 
     public static void main(String args[]) {
@@ -65,11 +102,10 @@ public class againbyte {
         inOrder(root);
         System.out.println();
 
-        if (search(root,7)){
-            System.out.println("found");
-        }else {
-            System.out.println("Not Found");
-        }
+        delete(root,4);
+        inOrder(root);
+
+
 
 
 
