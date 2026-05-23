@@ -86,6 +86,22 @@ public class againbyte {
         return root;
     }
 
+    public static void printInRange(Node root, int X, int Y){
+        if (root == null){
+            return;
+        }
+        if (root.data >= X && root.data <= Y ){
+            printInRange(root.left,X,Y);
+            System.out.print(root.data+ " ");
+            printInRange(root.right,X,Y);
+        }
+        else if (root.data >= Y){
+            printInRange(root.left,X,Y);
+        }else {
+            printInRange(root.right,X,Y);
+        }
+    }
+
 
 
 
@@ -102,8 +118,7 @@ public class againbyte {
         inOrder(root);
         System.out.println();
 
-        delete(root,4);
-        inOrder(root);
+       printInRange(root,6,10);
 
 
 
