@@ -15,20 +15,28 @@ public class againbyte {
             set.add(3);
             set.add(1);
 
-            //Searching
-            if (set.contains(1)){
-                System.out.println("Element Found");
-            }
-            if (!set.contains(5)){
-                System.out.println("Element Not Found");
-            }
+            //Size Of Set
+            System.out.println("The Size Of Set is "+ set.size());
 
-            //Deletion
-            set.remove(1);
+            //Print
+            System.out.println(set);
 
-            if (!set.contains(1)){
-                System.out.println("ITS JUST VANISHED VOILA");
-            }
+//            //Searching
+//            if (set.contains(1)){
+//                System.out.println("Element Found");
+//            }
+//            if (!set.contains(5)){
+//                System.out.println("Element Not Found");
+//            }
+//
+//            //Deletion
+//            set.remove(1);
+//
+//            if (!set.contains(1)){
+//                System.out.println("ITS JUST VANISHED VOILA");
+//            }
+
+
 
 
 
