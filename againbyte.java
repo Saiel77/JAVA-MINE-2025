@@ -102,13 +102,78 @@ public class againbyte {
         }
     }
 
+    public static void printPath(ArrayList<Integer> path){
+        for(int i=0; i<path.size(); i++){
+            System.out.print(path.get(i)+ "->");
+        }
+        System.out.println();
+    }
+
+    public static void printRoot2Leaf(Node root, ArrayList<Integer> path){
+        if (root == null){
+            return;
+        }
+        path.add(root.data);
+
+        //leaf
+        if (root.left == null && root.right == null){
+            printPath(path);
+        }else { //Non Leaf
+            printRoot2Leaf(root.left, path);
+            printRoot2Leaf(root.right, path);
+        }
+        path.remove(path.size()-1);
+    }
+
+
+    public static Node delete2(Node root, int val) {
+        //Searching for root
+        if (root.data > val) {
+            root.left = delete2(root.left, val);
+        } else if (root.data < val) {
+            root.right = delete2(root.right, val);
+        } else {
+            //Case 1 when we get the node to delete
+            if (root.left == null && root.right == null) {
+                return null;
+            }// Case 2
+            if (root.right == null) {
+                return root.left;
+            } else if (root.left == null) {
+                return root.right;
+            }
+
+            //Case 3
+            Node IS = InorderSucc(root.right);
+            root.data = IS.data;
+            delete2(root.right, IS.data);
+        }
+
+            return root;
+
+
+        }
+
+        public static Node InorderSucc (Node root){
+            while (root.left != null) {
+                root=  root.left;
+            }
+            return root;
+        }
+
+
+
+
+
+
+
 
 
 
 
 
     public static void main(String args[]) {
-        int values[] = {8,5,3,1,4,6,10,11,14};
+        int values[] = {8,5,3,6,10,11,14};
         Node root = null;
 
         for (int i=0; i<values.length; i++){
@@ -118,8 +183,8 @@ public class againbyte {
         inOrder(root);
         System.out.println();
 
-       printInRange(root,6,10);
-
+       delete2(root, 3);
+       inOrder(root);
 
 
 
