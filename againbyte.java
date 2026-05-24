@@ -21,6 +21,13 @@ public class againbyte {
             //Print
             System.out.println(set);
 
+            //Iterator
+            Iterator it = set.iterator();
+
+            while(it.hasNext()){
+                System.out.println(it.next());
+            }
+
 //            //Searching
 //            if (set.contains(1)){
 //                System.out.println("Element Found");
