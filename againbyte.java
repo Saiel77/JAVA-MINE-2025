@@ -154,7 +154,7 @@ public class againbyte {
                 System.out.println(keys.get(i)+" "+map.get(keys.get(i)));
             }
 
-            map.remove("INDIA");
+
 
             System.out.println(map.get("INDIA"));
 
