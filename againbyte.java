@@ -147,7 +147,7 @@ public class againbyte{
         map.put("USA",50);
         map.put("GERMANY",30);
 
-        ArrayList<String> keys = new ArrayList<>();
+        ArrayList<String> keys = map.keySet();
 
         for (int i=0; i< keys.size(); i++){
             System.out.println(keys.get(i)+" "+map.get(keys.get(i)));
