@@ -110,6 +110,7 @@ public class againbyte{
                 return null;
             } else {
                 Node node = buckets[bi].remove(di);
+                n--;
                 return node.value;
             }
         }
@@ -138,12 +139,6 @@ public class againbyte{
 
 
 
-
-
-
-
-
-
     public static void main(String args[]){
 
         HashMap<String, Integer> map = new HashMap<>();
@@ -151,6 +146,12 @@ public class againbyte{
         map.put("CHINA",200);
         map.put("USA",50);
         map.put("GERMANY",30);
+
+        ArrayList<String> keys = new ArrayList<>();
+
+        for (int i=0; i< keys.size(); i++){
+            System.out.println(keys.get(i)+" "+map.get(keys.get(i)));
+        }
 
     }
 }
