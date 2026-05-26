@@ -118,7 +118,7 @@ public class againbyte{
             return n==0;
         }
 
-        public ArrayList
+
     }
 
 
