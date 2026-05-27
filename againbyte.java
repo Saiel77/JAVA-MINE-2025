@@ -2,41 +2,29 @@ import java.util.*;
 
 public class againbyte{
 
-    public static void majorityElement(int nums[]){
-       HashMap<Integer,Integer> map = new HashMap<>();
 
-       int n = nums.length;
+    public static int union(int arr1[], int arr2[]){
+        HashSet<Integer> set = new HashSet<>();
 
-       for (int i =0; i<n; i++){
-           if (map.containsKey(nums[i])){ //If We Get The Key
-               map.put(nums[i],map.get(nums[i])+1);
-           } else { // If We Didnt Get The Key
-               map.put(nums[i],1);
-           }
-       }
+        for (int i=0; i<arr1.length; i++){
+            set.add(i);
+        }
 
-       for(int key: map.keySet()) {
-           if (map.get(key) > n / 3) {
-               System.out.println(key);
-           }
-       }
-
-        System.out.println(map.keySet());
-
-        System.out.println(map.values());
-
-
+        for (int j=0; j<arr2.length; j++){
+            set.add(j);
+        }
+        return set.size();
     }
+
+
+
 
 
 
     public static void main(String args[]){
-        int nums[] = {1,3,2,5,1,3,1,5,1};
+        int arr1[] = {7,3,9};
+        int arr2[] = {6,3,9,2,9,4};
 
-        majorityElement(nums);
-
-
-
+        System.out.println(union(arr1,arr2));
     }
-
 }
