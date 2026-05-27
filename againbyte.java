@@ -15,17 +15,27 @@ public class againbyte{
            }
        }
 
-       for(int key: map.keySet()){
-           if (map.get(key) > n/3 ){
+       for(int key: map.keySet()) {
+           if (map.get(key) > n / 3) {
                System.out.println(key);
            }
        }
+
+        System.out.println(map.keySet());
+
+        System.out.println(map.values());
+
+
     }
+
+
 
     public static void main(String args[]){
         int nums[] = {1,3,2,5,1,3,1,5,1};
 
         majorityElement(nums);
+
+
 
     }
 
