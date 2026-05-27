@@ -1,49 +1,44 @@
 import java.util.*;
 
+
 public class againbyte{
 
 
-    public static int union(int arr1[], int arr2[]){
-        HashSet<Integer> set = new HashSet<>();
+    public static String getStart(HashMap<String,String> tick){
+        HashMap<String,String> revMap = new HashMap<>();
 
-        for (int i=0; i<arr1.length; i++){
-            set.add(i);
+        for (String key : tick.keySet()){
+            revMap.put(tick.get(key),key);
+
         }
 
-        for (int j=0; j<arr2.length; j++){
-            set.add(j);
-        }
-        return set.size();
-    }
-
-    public static int intersection(int arr1[], int arr2[]){
-        HashSet<Integer> set = new HashSet<>();
-        int count = 0;
-
-        for (int i =0; i< arr1.length; i++){
-            set.add(arr1[i]);
-        }
-
-        for (int j=0; j<arr2.length; j++){
-            if (set.contains(arr2[j])){
-                count++;
-                set.remove(arr2[j]);
-
+        for (String key : tick.keySet()){
+            if (!revMap.containsKey(key)){
+                return key;
             }
         }
-        return count;
-    }
+        return null;
 
+
+    }
 
 
 
 
 
     public static void main(String args[]){
-        int arr1[] = {7,3,9};
-        int arr2[] = {6,3,9,2,9,4};
+        HashMap<String,String> tickets = new HashMap<>();
+        tickets.put("CHENNAI","BANGLORE");
+        tickets.put("MUMBAI","DELHI");
+        tickets.put("GOA","CHENNAI");
+        tickets.put("DELHI","GOA");
 
+        String start = getStart(tickets);
 
-        System.out.println(intersection(arr1,arr2));
+        while (tickets.containsKey(start)){
+            System.out.print(start + "->");
+            start = tickets.get(start);
+        }
+        System.out.print(start);
     }
 }
