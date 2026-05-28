@@ -4,41 +4,35 @@ import java.util.*;
 public class againbyte{
 
 
-    public static String getStart(HashMap<String,String> tick){
-        HashMap<String,String> revMap = new HashMap<>();
-
-        for (String key : tick.keySet()){
-            revMap.put(tick.get(key),key);
-
-        }
-
-        for (String key : tick.keySet()){
-            if (!revMap.containsKey(key)){
-                return key;
-            }
-        }
-        return null;
-
-
-    }
-
-
 
 
 
     public static void main(String args[]){
-        HashMap<String,String> tickets = new HashMap<>();
-        tickets.put("CHENNAI","BANGLORE");
-        tickets.put("MUMBAI","DELHI");
-        tickets.put("GOA","CHENNAI");
-        tickets.put("DELHI","GOA");
 
-        String start = getStart(tickets);
+        int arr[] = {10,2,-2,-20,10};
+        int k = -10;
+        HashMap<Integer,Integer> map = new HashMap<>(); //sum,freq
 
-        while (tickets.containsKey(start)){
-            System.out.print(start + "->");
-            start = tickets.get(start);
+        map.put(0,1);
+
+        int ans = 0;
+        int sum = 0;
+
+        for (int j=0; j< arr.length; j++){
+            sum += arr[j];
+
+            if (map.containsKey(sum-k)) {
+                ans += map.get(sum - k);
+            }
+
+                if (map.containsKey(sum)){
+                    map.put(sum,map.get(sum)+1);
+                }else {
+                    map.put(sum,1);
+                }
         }
-        System.out.print(start);
+        System.out.println(ans); //final count
+
+
     }
 }
