@@ -3,36 +3,58 @@ import java.util.*;
 
 public class againbyte{
 
+    static class Node{
+        Node chindren[];
+        boolean eow;
+
+        public Node(){
+            chindren = new Node[26];
+
+            for (int i=0; i< chindren.length; i++){
+                chindren[i] = null;
+            }
+            eow = false;
+        }
+    }
+
+    static Node root = new Node();
+
+
+    public static void insert(String word){
+
+        for (int i=0; i<word.length(); i++){
+            int idx = word.charAt(i)-'a';
+
+            if (root.chindren[idx] == null){
+                root.chindren[idx] = new Node();
+            }
+
+            if ( i == word.length()-1){
+                root.chindren[idx].eow = true;
+            }
+            root = root.chindren[idx];
+
+        }
+    }
+
+
+
 
 
 
 
     public static void main(String args[]){
+        String words[] ={"the","a","there","their","any" };
 
-        int arr[] = {10,2,-2,-20,10};
-        int k = -10;
-        HashMap<Integer,Integer> map = new HashMap<>(); //sum,freq
-
-        map.put(0,1);
-
-        int ans = 0;
-        int sum = 0;
-
-        for (int j=0; j< arr.length; j++){
-            sum += arr[j];
-
-            if (map.containsKey(sum-k)) {
-                ans += map.get(sum - k);
-            }
-
-                if (map.containsKey(sum)){
-                    map.put(sum,map.get(sum)+1);
-                }else {
-                    map.put(sum,1);
-                }
+        for (int i=0; i< words.length; i++){
+            insert(words[i]);
+            System.out.println(words[i]);
         }
-        System.out.println(ans); //final count
+
 
 
     }
+
+
 }
+
