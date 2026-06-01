@@ -21,24 +21,39 @@ public class againbyte{
 
 
     public static void insert(String word){
-
+        Node curr = root;
         for (int i=0; i<word.length(); i++){
             int idx = word.charAt(i)-'a';
 
-            if (root.chindren[idx] == null){
-                root.chindren[idx] = new Node();
+            if (curr.chindren[idx] == null){
+                curr.chindren[idx] = new Node();
             }
 
             if ( i == word.length()-1){
-                root.chindren[idx].eow = true;
+                curr.chindren[idx].eow = true;
             }
-            root = root.chindren[idx];
+            curr = curr.chindren[idx];
 
         }
     }
 
+    public static boolean search(String key){
+        Node curr = root;
+        for(int i =0; i<key.length(); i++){ // Time Complexity For This -> O(L) Where L is Length Is Length Of the Longest word
+            int idx = key.charAt(i) - 'a';
+            Node node = curr.chindren[idx];
 
+            if (node == null){
+                return false;
+            }
+            if (i == key.length()-1 && node.eow == false ){
+                return false;
+            }
 
+            curr = curr.chindren[idx];
+        }
+        return true;
+    }
 
 
 
@@ -46,10 +61,16 @@ public class againbyte{
     public static void main(String args[]){
         String words[] ={"the","a","there","their","any" };
 
-        for (int i=0; i< words.length; i++){
+        for (int i=0; i<words.length; i++){
             insert(words[i]);
-            System.out.println(words[i]);
         }
+
+
+
+
+        System.out.println(search("their"));
+        System.out.println(search("thor"));
+        System.out.println(search("an"));
 
 
 
