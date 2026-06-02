@@ -71,18 +71,34 @@ public class againbyte{
 
     }
 
+    public static boolean startsWith(String prefix){
+        Node curr = root;
+
+        for (int i =0; i<prefix.length(); i++){
+            int idx = prefix.charAt(i) - 'a';
+
+            if (curr.chindren[idx]== null){
+                return false;
+            }
+            curr = curr.chindren[idx];
+        }
+
+        return true;
+    }
+
+
 
 
 
     public static void main(String args[]){
-        String words[] ={"i", "like","sam","samsung", "mobile" };
-        String key = "ilikesamsung";
+        String words[] = {"apple","app","mango","man","woman"};
+        String prefix = "app";
 
-        for (int i=0; i< words.length; i++){
+        for (int i=0; i<words.length; i++){
             insert(words[i]);
         }
 
-        System.out.println(wordBreak(key));
+        System.out.println(startsWith(prefix));
 
     }
 
