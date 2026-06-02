@@ -55,24 +55,34 @@ public class againbyte{
         return true;
     }
 
+    public static boolean wordBreak(String key){
+        if (key.length() == 0){
+            return true;
+        }
+
+        for (int i =1; i<=key.length(); i++){
+            String firstPart = key.substring(0,i);
+            String secPart = key.substring(i);
+            if (search(firstPart) && wordBreak(secPart)){
+                return true;
+            }
+        }
+        return false;
+
+    }
+
 
 
 
     public static void main(String args[]){
-        String words[] ={"the","a","there","their","any" };
+        String words[] ={"i", "like","sam","samaung", "mobile" };
+        String key = "ilikesamsung";
 
-        for (int i=0; i<words.length; i++){
+        for (int i=0; i< words.length; i++){
             insert(words[i]);
         }
 
-
-
-
-        System.out.println(search("their"));
-        System.out.println(search("thor"));
-        System.out.println(search("an"));
-
-
+        System.out.println(wordBreak(key));
 
     }
 
