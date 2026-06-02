@@ -75,7 +75,7 @@ public class againbyte{
 
 
     public static void main(String args[]){
-        String words[] ={"i", "like","sam","samaung", "mobile" };
+        String words[] ={"i", "like","sam","samsung", "mobile" };
         String key = "ilikesamsung";
 
         for (int i=0; i< words.length; i++){
