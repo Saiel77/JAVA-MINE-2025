@@ -92,7 +92,7 @@ public class againbyte{
 
     public static void main(String args[]){
         String words[] = {"apple","app","mango","man","woman"};
-        String prefix = "app";
+        String prefix = "moon";
 
         for (int i=0; i<words.length; i++){
             insert(words[i]);
