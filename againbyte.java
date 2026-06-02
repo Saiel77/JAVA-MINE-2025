@@ -106,7 +106,7 @@ public class againbyte{
 
 
     public static void main(String args[]){
-        String str = "ababa";
+        String str = "apple";
 
         for (int i=0; i<str.length(); i++){
             String suffix = str.substring(i);
@@ -119,4 +119,6 @@ public class againbyte{
 
 
 }
+
+//apple - apple,appl,app,ap,a -> a,p,ap,app,pp,appl,l,le,pl,ppl,apple,e," ",ple,pple (SUBSTRINGS OF apple)
 
