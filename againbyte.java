@@ -74,10 +74,10 @@ public class againbyte{
 
         for (int i = 0; i < graph[curr].size(); i++) {
             Edge e = graph[curr].get(i);
-            if (vis[e.dest] == false) {
+            if (vis[e.dest] == false)
                 dfs(graph, e.dest, vis);
 
-            }
+
         }
     }
 
@@ -94,14 +94,14 @@ public class againbyte{
         ArrayList<Edge> graph[] = new ArrayList[V];
         createGraph(graph);
        boolean vis[] = new boolean[V];
-//        for (int i=0; i< V; i++){
-//            if (vis[i] == false){
-//                bfs(graph,V,vis,i) ;
-//            }
-//
-//        }
+        for (int i=0; i< V; i++){
+            if (vis[i] == false){
+                dfs(graph,i,vis);
+            }
 
-        dfs(graph,0,vis);
+        }
+
+
 
         System.out.println();
 
