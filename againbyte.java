@@ -47,11 +47,11 @@ public class againbyte{
 
     }
 
-    public static void bfs(ArrayList<Edge> graph[], int V){
+    public static void bfs(ArrayList<Edge> graph[], int V,boolean vis[], int start){
         Queue<Integer> q = new LinkedList<>();
 
-        boolean vis[] = new boolean[V];
-        q.add(0);
+
+        q.add(start);
 
         while (!q.isEmpty()){
             int curr = q.remove();
@@ -81,8 +81,14 @@ public class againbyte{
         @SuppressWarnings("unchecked")
         ArrayList<Edge> graph[] = new ArrayList[V];
         createGraph(graph);
+        boolean vis[] = new boolean[V];
+        for (int i=0; i< V; i++){
+            if (vis[i] == false){
+                bfs(graph,V,vis,i) ;
+            }
 
-        bfs(graph,V);
+        }
+
         System.out.println();
 
     }
