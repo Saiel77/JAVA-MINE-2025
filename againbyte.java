@@ -81,6 +81,22 @@ public class againbyte{
         }
     }
 
+    public static void printallPath(ArrayList<Edge> graph[],boolean vis[], int curr,String path,int tar){
+        if (curr == tar){
+            System.out.println(path);
+            return;
+        }
+
+        for (int i=0; i<graph[curr].size(); i++){
+            Edge e = graph[curr].get(i);
+            if (!vis[e.dest]){
+                vis[curr] = true;
+                printallPath(graph,vis,e.dest,path+e.dest,tar);
+                vis[curr] = false;
+            }
+        }
+    }
+
 
 
 
@@ -93,17 +109,11 @@ public class againbyte{
         @SuppressWarnings("unchecked")
         ArrayList<Edge> graph[] = new ArrayList[V];
         createGraph(graph);
-       boolean vis[] = new boolean[V];
-        for (int i=0; i< V; i++){
-            if (vis[i] == false){
-                dfs(graph,i,vis);
-            }
 
-        }
+        int src = 0;
+        int tar = 5;
 
-
-
-        System.out.println();
+        printallPath(graph,new boolean[V],src,"0",tar  );
 
     }
 }
