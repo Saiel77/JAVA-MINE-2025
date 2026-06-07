@@ -68,7 +68,7 @@ public class againbyte{
         }
     }
 
-    public static void dfs(ArrayList<Edge> graph[], int curr, boolean vis[]) { // Time Complexity -> O(V+E) GOOD
+    public static void dfs(ArrayList<Edge> graph[], int curr, boolean vis[]) { // Time Complexity -> O(V+E) GOO
         System.out.print(curr + " ");
         vis[curr] = true;
 
@@ -81,7 +81,7 @@ public class againbyte{
         }
     }
 
-    public static void printallPath(ArrayList<Edge> graph[],boolean vis[], int curr,String path,int tar){ // Time Complexity -> O(V^V) Worst Case
+    public static void printallPath(ArrayList<Edge> graph[],boolean vis[], int curr,String path,int tar){ // Time Complexity -> O(V^V) Worst 
         if (curr == tar){
             System.out.println(path);
             return;
