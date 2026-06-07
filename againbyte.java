@@ -68,7 +68,7 @@ public class againbyte{
         }
     }
 
-    public static void dfs(ArrayList<Edge> graph[], int curr, boolean vis[]) { // Time Complexity -> O(V+E)
+    public static void dfs(ArrayList<Edge> graph[], int curr, boolean vis[]) { // Time Complexity -> O(V+E) GOOD
         System.out.print(curr + " ");
         vis[curr] = true;
 
