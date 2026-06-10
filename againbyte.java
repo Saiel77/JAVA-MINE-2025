@@ -23,7 +23,7 @@ public class againbyte{
         graph[1].add(new Edge(1,0));
 
         graph[2].add(new Edge(2,3));
-       // graph[3].add(new Edge(3,0));
+        graph[3].add(new Edge(3,0));
 
 
 
@@ -109,13 +109,27 @@ public class againbyte{
 
     public static void main(String args[]){
 
-        int V = 7;
+        int V = 4;
 
         @SuppressWarnings("unchecked")
        ArrayList<Edge> graph[] = new ArrayList[V];
         createGraph(graph);
 
-        System.out.println(isCycleDirected(graph,0,new boolean[V],new boolean[V]));
+        boolean vis[] = new boolean[V];
+        boolean rec[] = new boolean[V];
+        for (int i=0; i<V; i++){
+            if (!vis[i]){
+                boolean isCycle = isCycleDirected(graph,0,vis,rec);
+                if (isCycle){
+                    System.out.println(isCycle);
+                    break;
+                }
+            }
+
+
+        }
+
+
 
 
 
