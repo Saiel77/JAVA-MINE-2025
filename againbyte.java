@@ -19,28 +19,13 @@ public class againbyte{
             graph[i] = new ArrayList<Edge>();
         }
 
-        graph[0].add(new Edge(0,1));
         graph[0].add(new Edge(0,2));
-
         graph[1].add(new Edge(1,0));
-        graph[1].add(new Edge(1,3));
 
-        graph[2].add(new Edge(2,0));
-        graph[2].add(new Edge(2,4));
+        graph[2].add(new Edge(2,3));
+        graph[3].add(new Edge(3,0));
 
-        graph[3].add(new Edge(3,1));
-        graph[3].add(new Edge(3,4));
-        graph[3].add(new Edge(3,5));
 
-        graph[4].add(new Edge(4,2));
-        graph[4].add(new Edge(4,3));
-        graph[4].add(new Edge(4,5));
-
-        graph[5].add(new Edge(5,3));
-        graph[5].add(new Edge(5,4));
-        graph[5].add(new Edge(5,6));
-
-        graph[6].add(new Edge(6,5));
 
 
 
@@ -97,6 +82,26 @@ public class againbyte{
         }
     }
 
+    public static boolean isCycleDirected(ArrayList<Edge> graph[], int curr,boolean vis[], boolean rec[]){
+        vis[curr] = true;
+        rec[curr] = true;
+
+        for (int i=0; i< graph[curr].size(); i++ ){
+            Edge e = graph[curr].get(i);
+            if (rec[e.dest]){ //Cycle Condition
+                return true;
+            }else if(!vis[e.dest]){
+                if (isCycleDirected(graph,e.dest,vis,rec)){
+                    return true;
+                }
+            }
+
+        }
+        rec[curr] = false;
+        return false;
+
+    }
+
 
 
 
@@ -107,13 +112,12 @@ public class againbyte{
         int V = 7;
 
         @SuppressWarnings("unchecked")
-        ArrayList<Edge> graph[] = new ArrayList[V];
+       ArrayList<Edge> graph[] = new ArrayList[V];
         createGraph(graph);
 
-        int src = 0;
-        int tar = 5;
+        System.out.println(isCycleDirected(graph,0,new boolean[V],new boolean[V]));
 
-        printallPath(graph,new boolean[V],src,"0",tar  );
+
 
     }
 }
