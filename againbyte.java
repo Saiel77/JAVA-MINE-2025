@@ -120,7 +120,21 @@ public class againbyte{
 
     }
 
-    public static void topSort()
+    public static void topSort(ArrayList<Edge> graph[], int V){
+
+        boolean vis[] = new boolean[V];
+        Stack<Integer> stack = new Stack<>();
+
+        for (int i=0; i<V; i++){
+            if (!vis[i]){
+                topSortUtil(graph,i,vis,stack);
+            }
+
+        }
+        while (!stack.isEmpty()){
+            System.out.print(stack.pop()+" ");
+        }
+    }
 
 
 
@@ -133,6 +147,8 @@ public class againbyte{
         @SuppressWarnings("unchecked")
         ArrayList<Edge> graph[] = new ArrayList[V];
         createGraph(graph);
+
+        topSort(graph,V);
 
 
 
