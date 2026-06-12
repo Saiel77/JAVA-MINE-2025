@@ -63,6 +63,19 @@ import java.util.*;
              System.out.print(dist[i]+" ");
          }
          System.out.println();
+
+         for (int i=0; i<V; i++){
+             for (int j=0; j<graph[i].size(); j++){
+                 Edge e = graph[i].get(j);
+                 int u = e.src;
+                 int v = e.dest;
+
+                 if(dist[u] != Integer.MAX_VALUE && dist[u] + e.wt < dist[v]){
+                     System.out.println("ITs A Negative Weight Cycle");
+                 }
+
+             }
+         }
      }
 
 
