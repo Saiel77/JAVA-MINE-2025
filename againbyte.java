@@ -44,38 +44,31 @@ import java.util.*;
              }
          }
 
+         List<Edge> edges = new ArrayList<>();
+         for (int i=0; i<V; i++){
+             for (Edge e: graph[i]){
+                 edges.add(e);
+
+             }
+         }
+
          for (int k=0; k<V-1; k++){
-             for (int i=0; i<V; i++){
-                 for (int j=0; j<graph[i].size(); j++){
-                     Edge e = graph[i].get(j);
-                     int u = e.src;
-                     int v = e.dest;
+             for (Edge e : edges){
+                 int u = e.src;
+                 int v= e.dest;
+                 int wt = e.wt;
 
-                     if(dist[u] != Integer.MAX_VALUE && dist[u] + e.wt < dist[v]){
-                         dist[v] = dist[u]+e.wt;
-                     }
-
+                 if (dist[u] != Integer.MAX_VALUE && dist[u] + wt < dist[v]){
+                     dist[v] = dist[u]+wt;
                  }
              }
+
          }
 
          for (int i=0; i< dist.length; i++){
              System.out.print(dist[i]+" ");
          }
          System.out.println();
-
-         for (int i=0; i<V; i++){
-             for (int j=0; j<graph[i].size(); j++){
-                 Edge e = graph[i].get(j);
-                 int u = e.src;
-                 int v = e.dest;
-
-                 if(dist[u] != Integer.MAX_VALUE && dist[u] + e.wt < dist[v]){
-                     System.out.println("ITs A Negative Weight Cycle");
-                 }
-
-             }
-         }
      }
 
 
