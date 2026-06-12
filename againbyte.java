@@ -1,187 +1,110 @@
 import java.util.*;
 
-public class againbyte{
 
-    static class Edge{
-        int src;
-        int dest;
+ public class againbyte{
 
+     static class Edge{
+         int src;
+         int dest;
+         int wt;
 
-        public Edge(int s, int d){
-            this.src = s;
-            this.dest = d;
-        }
+         public  Edge(int src,int dest,int wt){
+             this.src = src;
+             this.dest = dest;
+             this.wt = wt;
+         }
 
-    }
+     }
 
-    public static void createGraph(ArrayList<Edge> graph[]) {
-        for (int i = 0; i < graph.length; i++) {
-            graph[i] = new ArrayList<Edge>();
-        }
+     public static void createGraph(ArrayList<Edge> graph[]){
 
-        graph[0].add(new Edge(0,1));
-        graph[0].add(new Edge(0,4));
+         for (int i=0; i< graph.length; i++){
+             graph[i] = new ArrayList<>();
+         }
 
-        graph[1].add(new Edge(1,0));
-        graph[1].add(new Edge(1,2));
-        //graph[1].add(new Edge(1,4));
+         graph[0].add(new Edge(0,1,2));
+         graph[0].add(new Edge(0,2,4));
 
-        graph[2].add(new Edge(2,1));
-        graph[2].add(new Edge(2,3));
+         graph[1].add(new Edge(1,3,7));
+         graph[1].add(new Edge(1,2,1));
 
-        graph[3].add(new Edge(3,2));
+         graph[2].add(new Edge(2,4,3));
 
-        graph[4].add(new Edge(4,0));
-        //graph[4].add(new Edge(4,1));
-        graph[4].add(new Edge(4,5));
+         graph[3].add(new Edge(3,5,1));
 
-        graph[5].add(new Edge(5,4));
+         graph[4].add(new Edge(4,3,2));
+         graph[4].add(new Edge(4,5,5));
 
 
+     }
 
 
+     public static class Pair implements Comparable<Pair>{
+      int node;
+      int dist;
 
+      public Pair(int n,int d){
+          this.node = n;
+          this.dist = d;
+      }
 
+      @Override
+         public int compareTo(Pair p2){
+          return this.dist - p2.dist;
+      }
+     }
 
-    }
+     public static void dijkstra(ArrayList<Edge> graph[], int src, int V){
+         PriorityQueue<Pair> pq = new PriorityQueue<>();
+         int dist[] = new int[V];
+         for (int i=0; i<V; i++){
+             if (i != src){
+                 dist[i] = Integer.MAX_VALUE;
+             }
+         }
+         boolean vis[] = new boolean[V];
 
-    public static void bfs(ArrayList<Edge> graph[], int V,boolean vis[], int start){
-        Queue<Integer> q = new LinkedList<>();
+         pq.add(new Pair(0,0));
 
-
-        q.add(start);
-
-        while (!q.isEmpty()){
-            int curr = q.remove();
-            if (vis[curr] == false){
-                System.out.print(curr+ " ");
-                vis[curr] = true;
-
-                for (int i =0; i<graph[curr].size(); i++){
-                    Edge e = graph[curr].get(i);
-                    q.add(e.dest);
-                }
-
-            }
-        }
-    }
-
-    public static void dfs(ArrayList<Edge> graph[], int curr, boolean vis[]) { // Time Complexity -> O(V+E) GOOD
-        System.out.print(curr + " ");
-        vis[curr] = true;
-
-        for (int i = 0; i < graph[curr].size(); i++) {
-            Edge e = graph[curr].get(i);
-            if (vis[e.dest] == false)
-                dfs(graph, e.dest, vis);
-
-
-        }
-    }
-
-    public static void printallPath(ArrayList<Edge> graph[],boolean vis[], int curr,String path,int tar){ // Time Complexity -> O(V^V) Worst 
-        if (curr == tar){
-            System.out.println(path);
-            return;
-        }
-
-        for (int i=0; i<graph[curr].size(); i++){
-            Edge e = graph[curr].get(i);
-            if (!vis[e.dest]){
-                vis[curr] = true;
-                printallPath(graph,vis,e.dest,path+e.dest,tar);
-                vis[curr] = false;
-            }
-        }
-    }
-
-    public static boolean isCycleDirected(ArrayList<Edge> graph[], int curr,boolean vis[], boolean rec[]){
-        vis[curr] = true;
-        rec[curr] = true;
-
-        for (int i=0; i< graph[curr].size(); i++ ){
-            Edge e = graph[curr].get(i);
-            if (rec[e.dest]){ //Cycle Condition
-                return true;
-            }else if(!vis[e.dest]){
-                if (isCycleDirected(graph,e.dest,vis,rec)){
-                    return true;
-                }
-            }
-
-        }
-        rec[curr] = false;
-        return false;
-
-    }
-
-    public static void topSortUtil(ArrayList<Edge> graph[], int curr, boolean vis[], Stack<Integer> stack) {
-
-        vis[curr] = true;
-
-        for (int i=0; i<graph[curr].size(); i++){
-            Edge e = graph[curr].get(i);
-
-            if (!vis[e.dest]){
-                topSortUtil(graph,e.dest,vis,stack);
-
-            }
-        }
-        stack.push(curr);
-
-    }
-
-    public static void topSort(ArrayList<Edge> graph[], int V){
-
-        boolean vis[] = new boolean[V];
-        Stack<Integer> stack = new Stack<>();
-
-        for (int i=0; i<V; i++){
-            if (!vis[i]){
-                topSortUtil(graph,i,vis,stack);
-            }
-
-        }
-        while (!stack.isEmpty()){
-            System.out.print(stack.pop()+" ");
-        }
-    }
-
-    public static boolean isCycleUndirected(ArrayList<Edge> graph[], boolean vis[], int curr, int parent){
-        vis[curr] = true;
-
-        for (int i=0; i<graph[curr].size(); i++){
-            Edge e = graph[curr].get(i);
-            if (vis[e.dest] && e.dest != parent){
-                return true;
-            }else if(!vis[e.dest]){
-                if (isCycleUndirected(graph,vis,e.dest,curr)){
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
+         //Similar To BFS
+         while (!pq.isEmpty()){
+             Pair curr = pq.remove();
+             if (!vis[curr.node]){
+                 vis[curr.node] = true;
+                 for (int i=0; i<graph[curr.node].size(); i++){
+                     Edge e = graph[curr.node].get(i);
+                     int u = e.src;
+                     int v = e.dest;
+                     if (dist[u] + e.wt < dist[v]){ //Relaxation
+                         dist[v] = dist[u]+e.wt;
+                     }
+                 }
+             }
+         }
+         for (int i=0; i<V; i++){
+             System.out.print(dist[i]+" ");
+         }
+         System.out.println();
+     }
 
 
 
 
 
-    public static void main(String args[]){
-
-        int V =6;
-
-        @SuppressWarnings("unchecked")
-        ArrayList<Edge> graph[] = new ArrayList[V];
-        createGraph(graph);
-
-        System.out.println(isCycleUndirected(graph,new boolean[V],0,-1));
-
-
-sz
 
 
 
 
-    }
-}
+
+     public static void main(String args[]){
+
+         int V = 6;
+
+         @SuppressWarnings("unchecked")
+         ArrayList<Edge> graph[] = new ArrayList[V];
+         createGraph(graph);
+
+         dijkstra(graph,0,V);
+            
+     }
+ }
