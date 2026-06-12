@@ -77,6 +77,7 @@ import java.util.*;
                      int v = e.dest;
                      if (dist[u] + e.wt < dist[v]){ //Relaxation
                          dist[v] = dist[u]+e.wt;
+                         pq.add(new Pair(v,dist[v]));
                      }
                  }
              }
