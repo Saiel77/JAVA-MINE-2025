@@ -18,59 +18,63 @@ import java.util.*;
 
      public static void createGraph(ArrayList<Edge> graph[]){
 
-         for (int i=0; i< graph.length; i++){
-             graph[i] = new ArrayList<>();
-         }
+        for (int i=0; i<graph.length; i++){
+            graph[i] = new ArrayList<Edge>();
+        }
 
-       graph[0].add(new Edge(0,1,2));
-       graph[0].add(new Edge(0,2,4));
+        graph[0].add(new Edge(0,1,10));
+        graph[0].add(new Edge(0,2,15));
+        graph[0].add(new Edge(0,3,30));
 
-       graph[1].add(new Edge(1,2,-4));
+        graph[1].add(new Edge(1,0,10));
+        graph[1].add(new Edge(1,3,40));
 
-       graph[2].add(new Edge(2,3,2));
+        graph[2].add(new Edge(2,0,15));
+        graph[2].add(new Edge(2,3,50));
 
-       graph[3].add(new Edge(3,4,4));
-
-       graph[4].add(new Edge(4,1,-1));
-
-
+        graph[3].add(new Edge(3,1,40));
+        graph[3].add(new Edge(3,2,50));
      }
 
-     public static void bellManFord(ArrayList<Edge> graph[], int src,int V){
-         int dist[] = new int[V];
-         for (int i=0; i<V; i++){
-             if (i != src){
-                 dist[i] = Integer.MAX_VALUE;
-             }
+    public static class Pair implements Comparable<Pair> {
+         int node;
+         int cost;
+
+         public Pair(int n,int c){
+             this.node = n;
+             this.cost = c;
          }
 
-         List<Edge> edges = new ArrayList<>();
-         for (int i=0; i<V; i++){
-             for (Edge e: graph[i]){
-                 edges.add(e);
+         @Override
+         public int compareTo(Pair p2){
+             return this.cost - p2.cost;
+        }
+    }
 
+
+     public static void primsAlgo(ArrayList<Edge> graph[], int V){
+         PriorityQueue<Pair> pq = new PriorityQueue<>();
+         boolean vis[] = new boolean[V];
+         pq.add(new Pair(0,0));
+
+         int mstCost = 0;
+
+         while(!pq.isEmpty()){
+             Pair curr = pq.remove();
+             if (!vis[curr.node]){
+                 vis[curr.node] = true;
+                 mstCost += curr.cost;
              }
-         }
 
-         for (int k=0; k<V-1; k++){
-             for (Edge e : edges){
-                 int u = e.src;
-                 int v= e.dest;
-                 int wt = e.wt;
-
-                 if (dist[u] != Integer.MAX_VALUE && dist[u] + wt < dist[v]){
-                     dist[v] = dist[u]+wt;
+             for (int i=0; i<graph[curr.node].size(); i++ ){
+                 Edge e = graph[curr.node].get(i);
+                 if (!vis[e.dest]){
+                     pq.add(new Pair(e.dest,e.wt));
                  }
              }
-
-         }l
-
-         for (int i=0; i< dist.length; i++){
-             System.out.print(dist[i]+" ");
          }
-         System.out.println();
+         System.out.print("The Minimum Cost Of MST is "+ mstCost );
      }
-
 
 
 
@@ -81,13 +85,15 @@ import java.util.*;
 
      public static void main(String args[]){
 
-         int V =5;
+         int V =4;
 
          @SuppressWarnings("unchecked")
          ArrayList<Edge> graph[] = new ArrayList[V];
          createGraph(graph);
 
-         bellManFord(graph,0,V);
+         primsAlgo(graph,V);
+
+
             
      }
  }
