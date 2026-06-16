@@ -1,99 +1,110 @@
 import java.util.*;
 
 
- public class againbyte{
+public class againbyte{
 
      static class Edge{
-         int src;
-         int dest;
-         int wt;
+        int src;
+        int dest;
 
-         public  Edge(int src,int dest,int wt){
-             this.src = src;
-             this.dest = dest;
-             this.wt = wt;
-         }
-
-     }
-
-     public static void createGraph(ArrayList<Edge> graph[]){
-
-        for (int i=0; i<graph.length; i++){
-            graph[i] = new ArrayList<Edge>();
-        }
-
-        graph[0].add(new Edge(0,1,10));
-        graph[0].add(new Edge(0,2,15));
-        graph[0].add(new Edge(0,3,30));
-
-        graph[1].add(new Edge(1,0,10));
-        graph[1].add(new Edge(1,3,40));
-
-        graph[2].add(new Edge(2,0,15));
-        graph[2].add(new Edge(2,3,50));
-
-        graph[3].add(new Edge(3,1,40));
-        graph[3].add(new Edge(3,2,50));
-     }
-
-    public static class Pair implements Comparable<Pair> {
-         int node;
-         int cost;
-
-         public Pair(int n,int c){
-             this.node = n;
-             this.cost = c;
-         }
-
-         @Override
-         public int compareTo(Pair p2){
-             return this.cost - p2.cost;
+        public Edge(int src, int dest){
+            this.src = src;
+            this.dest = dest;
         }
     }
 
 
-     public static void primsAlgo(ArrayList<Edge> graph[], int V){
-         PriorityQueue<Pair> pq = new PriorityQueue<>();
-         boolean vis[] = new boolean[V];
-         pq.add(new Pair(0,0));
+    public static void createGraph(ArrayList<Edge> graph[]){
 
-         int mstCost = 0;
+        for (int i=0; i<graph.length; i++){
+            graph[i] = new ArrayList<>();
+        }
 
-         while(!pq.isEmpty()){
-             Pair curr = pq.remove();
-             if (!vis[curr.node]){
-                 vis[curr.node] = true;
-                 mstCost += curr.cost;
-             }
+        graph[0].add(new Edge(0,2));
+        graph[0].add(new Edge(0,3));
 
-             for (int i=0; i<graph[curr.node].size(); i++ ){
-                 Edge e = graph[curr.node].get(i);
-                 if (!vis[e.dest]){
-                     pq.add(new Pair(e.dest,e.wt));
-                 }
+        graph[1].add(new Edge(1,0));
+
+        graph[2].add(new Edge(2,1));
+
+        graph[3].add(new Edge(3,4));
+
+    }
+
+
+    public static void topSort(ArrayList<Edge> graph[], int curr, boolean vis[], Stack<Integer> s){
+         vis[curr] = true;
+
+         for (int i=0; i<graph[curr].size(); i++){
+             Edge e = graph[curr].get(i);
+             if (!vis[e.dest]){
+                 topSort(graph,e.dest,vis,s);
              }
          }
-         System.out.print("The Minimum Cost Of MST is "+ mstCost );
-     }
+         s.push(curr);
+    }
+
+    public static void dfs(ArrayList<Edge> graph[], int curr, boolean vis[]){
+         vis[curr] = true;
+        System.out.print(curr+" ");
+
+         for (int i=0; i<graph[curr].size(); i++){
+             Edge e = graph[curr].get(i);
+             if (!vis[e.dest]){
+                 dfs(graph, e.dest, vis);
+             }
+         }
+    }
+
+    public static void kosaRajuAlgo(ArrayList<Edge> graph[], int V) {
+        Stack<Integer> s = new Stack<>();
+        boolean vis[] = new boolean[V];
+
+        //Step 1
+        for (int i = 0; i < V; i++) {
+            if (!vis[i]) {
+                topSort(graph, i, vis, s);
+            }
+        }
+
+        // Step 2
+        @SuppressWarnings("unchecked")
+        ArrayList<Edge> transpose[] = new ArrayList[V];
+        for (int i = 0; i < graph.length; i++) {
+            vis[i] = false;
+            transpose[i] = new ArrayList<Edge>();
+        }
+        for (int i = 0; i < V; i++) {
+            for (int j = 0; j < graph[i].size(); j++) {
+                Edge e = graph[i].get(j);
+                transpose[e.dest].add(new Edge(e.dest, e.src));
+
+            }
+        }
+
+        // Step 3
+        while (!s.isEmpty()) {
+            int curr = s.pop();
+                if (!vis[curr]) {
+                    dfs(transpose, curr, vis);
+                    System.out.println();
+                }
 
 
+        }
 
+    }
 
+    public static void main(String args[]){
 
+         int V = 5;
 
-
-
-     public static void main(String args[]){
-
-         int V =4;
 
          @SuppressWarnings("unchecked")
          ArrayList<Edge> graph[] = new ArrayList[V];
          createGraph(graph);
 
-         primsAlgo(graph,V);
+         kosaRajuAlgo(graph,V);
 
-
-            
-     }
- }
+    }
+}
