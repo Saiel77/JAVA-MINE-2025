@@ -81,7 +81,7 @@ public class againbyte{
 
          for (int i=0; i<V; i++){
              if (ap[i]){
-                 System.out.println("AP IS: "+ ap[i]);
+                 System.out.println("AP IS: "+ i);
              }
          }
 
@@ -103,6 +103,8 @@ public class againbyte{
          @SuppressWarnings("unchecked")
          ArrayList<Edge> graph[] = new ArrayList[V];
          createGraph(graph);
+
+         getAP(graph,V);
 
 
 
