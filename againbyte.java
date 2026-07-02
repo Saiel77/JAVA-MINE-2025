@@ -106,7 +106,7 @@ public class againbyte{
 
          getAP(graph,V);
 
-//THis is the trick to push gi
+//THis is the trick to push
 
 
     }
